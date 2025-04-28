@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: field-booking-api
+    env: docker
+    plan: free
+    region: singapore
+    branch: main
+    rootDir: .
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true

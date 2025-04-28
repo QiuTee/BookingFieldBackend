@@ -29,7 +29,7 @@ if (string.IsNullOrEmpty(connectionString))
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseNpgsql(connectionString, sqlOptions => sqlOptions.CommandTimeout(12000000)); 
+    options.UseNpgsql(connectionString, sqlOptions => sqlOptions.CommandTimeout(30)); 
 });
 
 builder.Services.AddScoped<AuthService>();
