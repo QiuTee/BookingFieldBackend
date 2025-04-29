@@ -8,11 +8,13 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish -c Release -o out
 
-# Stage 2: Run the application
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 WORKDIR /app
 COPY --from=build /app/out .
 
+EXPOSE 80
+
+ENV ASPNETCORE_ENVIRONMENT=Production
 ENV ASPNETCORE_URLS=http://+:${PORT}
 
 ENTRYPOINT ["dotnet", "FieldBookingAPI.dll"]
