@@ -65,5 +65,11 @@ namespace FieldBookingAPI.Controllers
                 name
             });
         }
+        [HttpGet("test")]
+        public IActionResult Test()
+        {
+            return Ok("Controller đang hoạt động!");
+        }
+
     }
 }
