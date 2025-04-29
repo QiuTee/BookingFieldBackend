@@ -8,12 +8,11 @@ using FieldBookingAPI.Helpers;
 using FieldBookingAPI.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 
-
-
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 var env = builder.Environment;
 
+// Load environment variables (e.g., JWT_KEY)
 DotNetEnv.Env.Load();
 builder.Configuration["Jwt:Key"] = Environment.GetEnvironmentVariable("JWT_KEY");
 
@@ -21,6 +20,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configure database connection
 var connectionString = config.GetConnectionString("DefaultConnection");
 if (string.IsNullOrEmpty(connectionString))
 {
@@ -29,24 +29,31 @@ if (string.IsNullOrEmpty(connectionString))
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseNpgsql(connectionString, sqlOptions => sqlOptions.CommandTimeout(30)); 
+    options.UseNpgsql(connectionString, sqlOptions => sqlOptions.CommandTimeout(30));
 });
 
+// Add your services
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<JwtTokenGenerator>();
 
+// Configure CORS for frontend (localhost & future domain)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy
-            .WithOrigins("http://localhost:5173")
+            .WithOrigins(
+                "http://localhost:5173", 
+                "https://your-frontend.vercel.app", 
+                "https://yourcustomdomain.com"
+            )
             .AllowCredentials()
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
 });
 
+// Configure JWT authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -79,18 +86,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-// Build and configure the HTTP request pipeline
 var app = builder.Build();
 
-app.UseCors("AllowFrontend");
-app.UseAuthentication();
-app.UseAuthorization();
-
-if (env.IsDevelopment())
+// 👉 Bật Swagger trong cả Development và Production
+if (env.IsDevelopment() || env.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Middlewares
+app.UseCors("AllowFrontend");
+app.UseAuthentication();
+app.UseAuthorization();
+
+// Map Controller routes
 app.MapControllers();
+
 app.Run();
