@@ -71,5 +71,14 @@ namespace FieldBookingAPI.Controllers
             return Ok("Controller đang hoạt động!");
         }
 
+        [HttpGet("check-register")]
+        public IActionResult CheckRegister()
+        {
+            var method = typeof(AuthController).GetMethods()
+                .FirstOrDefault(m => m.Name == "Register");
+
+            return Ok(method?.Name ?? "Register not found");
+        }
+
     }
 }
