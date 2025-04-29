@@ -44,8 +44,7 @@ builder.Services.AddCors(options =>
         policy
             .WithOrigins(
                 "http://localhost:5173", 
-                "https://your-frontend.vercel.app", 
-                "https://yourcustomdomain.com"
+                "https://booking-fiels-frontend-zapk.vercel.app"
             )
             .AllowCredentials()
             .AllowAnyHeader()
