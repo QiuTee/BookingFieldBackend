@@ -26,7 +26,7 @@ namespace FieldBookingAPI.Controllers
 
             var token = await _authService.RegisterAsync(dto.Name, dto.Identifier, dto.Password);
             if (token == null)
-                return BadRequest(new { error = "Tài khoản đã tồn tại" });
+                return BadRequest(new { message = "Tài khoản đã tồn tại" });
 
                 
             return Ok(new

@@ -18,8 +18,9 @@ namespace FieldBookingAPI.Services
         }
 
         public async Task<string?> RegisterAsync(string name, string identifier, string password)
-        {
-            if (_context.Users.Any(u => u.Identifier == identifier)) return null;
+        {           
+            var exists = await _context.Users.AnyAsync(u => u.Identifier == identifier);
+            if (exists) return null;
 
             var user = new User
             {
@@ -33,6 +34,7 @@ namespace FieldBookingAPI.Services
 
             return _jwt.GenerateToken(user);
         }
+
 
         public async Task<string?> LoginAsync(string identifier, string password)
         {

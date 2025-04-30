@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FieldBookingAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34be14bd2d8b698561b72247dbdc96162c699402")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f5ae2f16782972c449c36a057fc85273be10844")]
 [assembly: System.Reflection.AssemblyProductAttribute("FieldBookingAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FieldBookingAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

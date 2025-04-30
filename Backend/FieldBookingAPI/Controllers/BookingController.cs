@@ -27,14 +27,18 @@ namespace FieldBookingAPI.Controllers
             if (string.IsNullOrEmpty(userIdClaim))
                 return Unauthorized();
 
+            // ✅ Ép kiểu Date thành UTC nếu chưa có Kind
+            var safeDate = DateTime.SpecifyKind(dto.Date, DateTimeKind.Utc);
+
             var booking = new Booking
             {
                 FieldName = dto.FieldName,
-                Date = dto.Date,
+                Date = safeDate,
                 UserName = dto.UserName,
                 Phone = dto.Phone,
                 Notes = dto.Notes,
                 Status = "pending",
+                CreatedAt = DateTime.UtcNow,   // ✅ Luôn là UTC
                 UserId = int.Parse(userIdClaim),
                 Slots = dto.Slots.Select(s => new BookingSlot
                 {
@@ -43,11 +47,19 @@ namespace FieldBookingAPI.Controllers
                 }).ToList()
             };
 
-            _context.Bookings.Add(booking);
-            await _context.SaveChangesAsync();
-
-            return Ok(new { message = "Đặt sân thành công", bookingId = booking.Id });
+            try
+            {
+                _context.Bookings.Add(booking);
+                await _context.SaveChangesAsync();
+                return Ok(new { message = "Đặt sân thành công", bookingId = booking.Id });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lưu booking: " + ex.Message);
+                return StatusCode(500, "Lỗi khi lưu booking");
+            }
         }
+
 
         [HttpGet("my-bookings")]
         [Authorize]
