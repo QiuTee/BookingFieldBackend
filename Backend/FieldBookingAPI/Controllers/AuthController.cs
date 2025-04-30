@@ -16,17 +16,22 @@ namespace FieldBookingAPI.Controllers
         {
             _authService = authService;
         }
-
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto dto)
         {
+            if (dto.Password != dto.RetypePassword)
+            {
+                return BadRequest("Mật khẩu nhập lại không khớp");
+            }
+
             var token = await _authService.RegisterAsync(dto.Name, dto.Identifier, dto.Password);
             if (token == null)
-                return BadRequest("Tài khoản đã tồn tại");
+                return BadRequest(new { error = "Tài khoản đã tồn tại" });
 
+                
             return Ok(new
             {
-                status = "200" , 
+                status = "200",
                 message = "Đăng ký thành công",
                 token = token
             });
