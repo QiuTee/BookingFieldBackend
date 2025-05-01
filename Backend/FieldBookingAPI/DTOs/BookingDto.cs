@@ -1,13 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 namespace FieldBookingAPI.DTOs
 {
     public class BookingDto
     {
         public string FieldName { get; set; } = null!;
+
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         public List<BookingSlotDto> Slots { get; set; } = new();
+
         public string UserName { get; set; } = null!;
+
         public string Phone { get; set; } = null!;
+
         public string? Notes { get; set; }
     }
 }

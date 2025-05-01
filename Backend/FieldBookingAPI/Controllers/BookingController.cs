@@ -27,8 +27,7 @@ namespace FieldBookingAPI.Controllers
             if (string.IsNullOrEmpty(userIdClaim))
                 return Unauthorized();
 
-            // ✅ Ép kiểu Date thành UTC nếu chưa có Kind
-            var safeDate = DateTime.SpecifyKind(dto.Date, DateTimeKind.Utc);
+            var safeDate = DateTime.SpecifyKind(dto.Date.Date, DateTimeKind.Utc);
 
             var booking = new Booking
             {
@@ -38,7 +37,7 @@ namespace FieldBookingAPI.Controllers
                 Phone = dto.Phone,
                 Notes = dto.Notes,
                 Status = "pending",
-                CreatedAt = DateTime.UtcNow,   // ✅ Luôn là UTC
+                CreatedAt = DateTime.UtcNow,
                 UserId = int.Parse(userIdClaim),
                 Slots = dto.Slots.Select(s => new BookingSlot
                 {
@@ -55,11 +54,10 @@ namespace FieldBookingAPI.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi lưu booking: " + ex.Message);
+                Console.WriteLine("Lỗi khi lưu booking: " + ex.ToString());
                 return StatusCode(500, "Lỗi khi lưu booking");
             }
         }
-
 
         [HttpGet("my-bookings")]
         [Authorize]
@@ -103,8 +101,8 @@ namespace FieldBookingAPI.Controllers
         [HttpDelete("auto-cancel")]
         public async Task<IActionResult> AutoCancelBookings()
         {
-            var now = DateTime.UtcNow;
-            var expiredTime = now.AddMinutes(-30);
+            var nowUtc = DateTime.UtcNow;
+            var expiredTime = nowUtc.AddMinutes(-30);
 
             var expiredBookings = await _context.Bookings
                 .Where(b => b.Status == "pending" && b.CreatedAt <= expiredTime)
@@ -124,14 +122,17 @@ namespace FieldBookingAPI.Controllers
         [HttpGet("booked-slots")]
         public async Task<IActionResult> GetBookedSlots([FromQuery] string fieldName, [FromQuery] DateTime date)
         {
+            var safeDate = DateTime.SpecifyKind(date.Date, DateTimeKind.Utc);
+
             var slots = await _context.Bookings
-                .Where(b => b.FieldName == fieldName && b.Date == date && b.Status == "confirmed")
+                .Where(b => b.FieldName == fieldName && b.Date == safeDate && b.Status == "confirmed")
                 .SelectMany(b => b.Slots)
                 .Select(s => new { s.SubField, s.Time })
                 .ToListAsync();
 
             return Ok(slots);
         }
+
 
     }
 }
