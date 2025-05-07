@@ -12,7 +12,7 @@ namespace FieldBookingAPI.Models
     public string Phone { get; set; } = null!;
     public string? Notes { get; set; }
     public string Status { get; set; } = "pending"; 
-    public int UserId { get; set; }
+    public int? UserId { get; set; } 
     public User? User { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

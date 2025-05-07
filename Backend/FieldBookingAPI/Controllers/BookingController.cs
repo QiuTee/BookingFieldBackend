@@ -20,12 +20,14 @@ namespace FieldBookingAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<IActionResult> CreateBooking([FromBody] BookingDto dto)
         {
+            int? userId = null;
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userIdClaim))
-                return Unauthorized();
+            
+            if (!string.IsNullOrEmpty(userIdClaim)){
+                userId = int.Parse(userIdClaim);
+            }
 
             var safeDate = DateTime.SpecifyKind(dto.Date.Date, DateTimeKind.Utc);
 
@@ -38,7 +40,7 @@ namespace FieldBookingAPI.Controllers
                 Notes = dto.Notes,
                 Status = "pending",
                 CreatedAt = DateTime.UtcNow,
-                UserId = int.Parse(userIdClaim),
+                UserId = userId ,
                 Slots = dto.Slots.Select(s => new BookingSlot
                 {
                     SubField = s.SubField,
@@ -131,6 +133,19 @@ namespace FieldBookingAPI.Controllers
                 .ToListAsync();
 
             return Ok(slots);
+        }
+
+        [HttpGet("public/{id}")]
+        public async Task<IActionResult> GetPublicBookingById(int id)
+        {
+            var booking = await _context.Bookings
+                .Include(b => b.Slots)
+                .FirstOrDefaultAsync(b => b.Id == id && b.Status == "confirmed");
+
+            if (booking == null)
+                return NotFound();
+
+            return Ok(booking);
         }
 
 
