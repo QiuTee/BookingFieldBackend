@@ -140,7 +140,7 @@ namespace FieldBookingAPI.Controllers
         {
             var booking = await _context.Bookings
                 .Include(b => b.Slots)
-                .FirstOrDefaultAsync(b => b.Id == id && b.Status == "confirmed");
+                .FirstOrDefaultAsync(b => b.Id == id && ( b.Status == "confirmed" || b.Status == "pending"));
 
             if (booking == null)
                 return NotFound();

@@ -26,7 +26,8 @@ namespace FieldBookingAPI.Services
             {
                 Name = name,
                 Identifier = identifier,
-                PasswordHash = BCrypt.Net.BCrypt.HashPassword(password)
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(password),
+                Role = "member"
             };
 
             _context.Users.Add(user);

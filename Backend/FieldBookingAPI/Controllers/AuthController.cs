@@ -3,7 +3,7 @@ using FieldBookingAPI.DTOs;
 using FieldBookingAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-
+using FieldBookingAPI.Data;
 namespace FieldBookingAPI.Controllers
 {
     [ApiController]
@@ -11,10 +11,12 @@ namespace FieldBookingAPI.Controllers
     public class AuthController : ControllerBase
     {
         private readonly AuthService _authService;
+        private readonly AppDbContext _context;
 
-        public AuthController(AuthService authService)
+        public AuthController(AuthService authService , AppDbContext context)
         {
             _authService = authService;
+            _context = context;
         }
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterDto dto)
@@ -83,6 +85,22 @@ namespace FieldBookingAPI.Controllers
                 .FirstOrDefault(m => m.Name == "Register");
 
             return Ok(method?.Name ?? "Register not found");
+        }
+
+        [Authorize(Roles = "admin")]
+        [HttpPost("assign-role")]
+        public async Task<IActionResult> AssignRole([FromBody] AssignRoleDto dto)
+        {
+           var user = await _context.Users.FindAsync(dto.UserId);
+            if (user == null)
+            {
+                return NotFound(new { message = "Người dùng không tồn tại" });
+            }
+
+            user.Role = dto.Role;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Phân quyền thành công" });
         }
 
     }

@@ -32,11 +32,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString, sqlOptions => sqlOptions.CommandTimeout(30));
 });
 
-// Add your services
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<JwtTokenGenerator>();
+builder.Services.AddScoped<BookingCleanupService>();
 
-// Configure CORS for frontend (localhost & future domain)
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -87,19 +87,16 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// 👉 Bật Swagger trong cả Development và Production
 if (env.IsDevelopment() || env.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// Middlewares
 app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Map Controller routes
 app.MapControllers();
 
 app.Run();

@@ -17,7 +17,7 @@ namespace FieldBookingAPI.Models
         public int OwnerId { get; set; }
         public User Owner { get; set; } = null!;
 
-        public List<FieldImage> Images { get; set; } = new();
+        public List<FieldImage>? Images { get; set; } = new();
         public List<FieldService> Services { get; set; } = new();
         public List<FieldReview>? Reviews { get; set; } = new();
         public List<SubField>? SubFields { get; set; } = new();
