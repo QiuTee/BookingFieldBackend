@@ -3,6 +3,7 @@ using System;
 using FieldBookingAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FieldBookingAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250510153536_AddCreatedByAdminToField")]
+    partial class AddCreatedByAdminToField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,22 +41,11 @@ namespace FieldBookingAPI.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("FieldId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("FieldName")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsRead")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false);
-
                     b.Property<string>("Notes")
-                        .HasColumnType("text");
-
-                    b.Property<string>("PaymentImageUrl")
                         .HasColumnType("text");
 
                     b.Property<string>("Phone")
@@ -66,9 +58,6 @@ namespace FieldBookingAPI.Migrations
                         .HasColumnType("text")
                         .HasDefaultValue("pending");
 
-                    b.Property<string>("StudentCardImageUrl")
-                        .HasColumnType("text");
-
                     b.Property<int?>("UserId")
                         .HasColumnType("integer");
 
@@ -77,8 +66,6 @@ namespace FieldBookingAPI.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("FieldId");
 
                     b.HasIndex("UserId");
 
@@ -294,17 +281,9 @@ namespace FieldBookingAPI.Migrations
 
             modelBuilder.Entity("FieldBookingAPI.Models.Booking", b =>
                 {
-                    b.HasOne("FieldBookingAPI.Models.Field", "Field")
-                        .WithMany()
-                        .HasForeignKey("FieldId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("FieldBookingAPI.Models.User", "User")
                         .WithMany("Bookings")
                         .HasForeignKey("UserId");
-
-                    b.Navigation("Field");
 
                     b.Navigation("User");
                 });

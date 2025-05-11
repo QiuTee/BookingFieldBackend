@@ -41,6 +41,7 @@ namespace FieldBookingAPI.Controllers
                 Status = "pending",
                 CreatedAt = DateTime.UtcNow,
                 UserId = userId ,
+                FieldId = dto.FieldId,
                 Slots = dto.Slots.Select(s => new BookingSlot
                 {
                     SubField = s.SubField,
@@ -59,6 +60,22 @@ namespace FieldBookingAPI.Controllers
                 Console.WriteLine("Lỗi khi lưu booking: " + ex.ToString());
                 return StatusCode(500, "Lỗi khi lưu booking");
             }
+        }
+
+        [AllowAnonymous]
+        [HttpPut("{id}/confirm-payment")]
+        public async Task<IActionResult> ConfirmPayment(int id, [FromBody] PaymentConfirmationDto  dto)
+        {
+            var booking = await _context.Bookings.FindAsync(id);
+            if (booking == null)
+                return NotFound();
+            
+            booking.Status = "paid";
+            booking.PaymentImageUrl = dto.PaymentImageUrl;
+            booking.StudentCardImageUrl = dto.StudentCardImageUrl;
+
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "Xác nhận thanh toán thành công" });
         }
 
         [HttpGet("my-bookings")]
@@ -148,6 +165,61 @@ namespace FieldBookingAPI.Controllers
             return Ok(booking);
         }
 
+        [HttpGet("owner-bookings")]
+        [Authorize(Roles = "admin, owner")]
+        public async Task<IActionResult> GetBookingForOnwer()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim))
+                return Unauthorized();
+
+            var userId = int.Parse(userIdClaim);
+
+            var bookings = await _context.Bookings
+                .Include(b => b.Slots)
+                .Include(b => b.Field)
+                .Where(b => b.Field != null && b.Field.OwnerId == userId)
+                .OrderByDescending(b => b.Date)
+                .ToListAsync();
+
+            return Ok(bookings);
+        }
+
+        [HttpPut("{id}/update-status")]
+        [Authorize(Roles = "admin, owner")]
+        public async Task<IActionResult> UpdateBookingStatus(int id, [FromBody]  StatusUpdateDto dto)
+        {
+            var booking = await _context.Bookings.FindAsync(id);
+            if (booking == null)
+                return NotFound();
+
+            booking.Status = dto.Status.ToLower();
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "Cập nhật trạng thái đơn thành công" });
+        }
+
+        [Authorize(Roles = "admin, owner")]
+        [HttpPut("{id}/mark-as-read")]
+        public async Task<IActionResult> MarkAsRead(int id)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim))
+                return Unauthorized();
+
+            var userId = int.Parse(userIdClaim);
+
+            var booking = await _context.Bookings
+                .Include(b => b.Field)
+                .FirstOrDefaultAsync(b => b.Id == id && b.Field != null && b.Field.OwnerId == userId);
+
+            if (booking == null)
+                return NotFound();
+
+            booking.IsRead = true;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Đã đánh dấu đã đọc" });
+        }
 
     }
 }

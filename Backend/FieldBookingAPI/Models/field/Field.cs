@@ -16,6 +16,8 @@ namespace FieldBookingAPI.Models
         public bool Is24h { get; set; } 
         public int OwnerId { get; set; }
         public User Owner { get; set; } = null!;
+        public int? CreatedByAdminId { get; set; }
+        public User? CreatedByAdmin { get; set; }
 
         public List<FieldImage>? Images { get; set; } = new();
         public List<FieldService> Services { get; set; } = new();

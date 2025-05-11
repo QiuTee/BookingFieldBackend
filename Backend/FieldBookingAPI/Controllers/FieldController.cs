@@ -36,7 +36,8 @@ namespace FieldBookingAPI.Controllers
                 slug = $"{baseSlug}-{counter}";
                 counter++;
             }
-            var field = new Field{
+            var field = new Field
+            {
                 Name = dto.Name,
                 Location = dto.Location,
                 Phone = dto.Phone, 
@@ -48,7 +49,8 @@ namespace FieldBookingAPI.Controllers
                 HeroImage = dto.HeroImage,
                 Logo = dto.Logo,
                 Slug = slug,
-                OwnerId = userId,
+                OwnerId = dto.OwnerId ?? userId,
+                CreatedByAdminId = userId,
             };
             _context.Fields.Add(field);
             await _context.SaveChangesAsync();

@@ -18,5 +18,6 @@ namespace FieldBookingAPI.DTOs
         public string Phone { get; set; } = null!;
 
         public string? Notes { get; set; }
+        public int FieldId { get; set; }
     }
 }

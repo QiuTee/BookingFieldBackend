@@ -37,14 +37,30 @@ namespace FieldBookingAPI.Data
                 .HasDefaultValue("pending");
 
             modelBuilder.Entity<Booking>()
-            .Property(b => b.CreatedAt)
-            .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
+                .Property(b => b.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
+
+            modelBuilder.Entity<Booking>()
+                .HasOne(b => b.Field)
+                .WithMany()
+                .HasForeignKey(b => b.FieldId)
+                .OnDelete(DeleteBehavior.Restrict);
+            
+            modelBuilder.Entity<Booking>()
+                .Property(b => b.IsRead)
+                .HasDefaultValue(false);
 
             modelBuilder.Entity<Field>()
-                .HasOne(f=> f.Owner)
+                .HasOne(f => f.Owner)
                 .WithMany(u => u.Fields)
                 .HasForeignKey(f => f.OwnerId);
-            
+
+            modelBuilder.Entity<Field>()
+                .HasOne(f => f.CreatedByAdmin) 
+                .WithMany()
+                .HasForeignKey(f => f.CreatedByAdminId)
+                .OnDelete(DeleteBehavior.Restrict); 
+
             modelBuilder.Entity<Field>()
                 .HasMany(f => f.Images)
                 .WithOne(fi => fi.Field)
@@ -54,7 +70,7 @@ namespace FieldBookingAPI.Data
                 .HasMany(f => f.Services)
                 .WithOne(fs => fs.Field)
                 .HasForeignKey(fs => fs.FieldId);
-            
+
             modelBuilder.Entity<Field>()
                 .HasMany(f => f.Reviews)
                 .WithOne(fr => fr.Field)
@@ -65,6 +81,5 @@ namespace FieldBookingAPI.Data
                 .WithOne(sf => sf.Field)
                 .HasForeignKey(sf => sf.FieldId);
         }
-
     }
 }

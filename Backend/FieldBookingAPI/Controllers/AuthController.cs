@@ -65,11 +65,12 @@ namespace FieldBookingAPI.Controllers
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var name = User.Identity?.Name;
-
+            var role = User.FindFirst(ClaimTypes.Role)?.Value;
             return Ok(new
             {
                 userId,
-                name
+                name,
+                role 
             });
         }
         [HttpGet("test")]

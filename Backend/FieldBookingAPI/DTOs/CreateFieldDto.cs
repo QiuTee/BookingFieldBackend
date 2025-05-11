@@ -12,5 +12,6 @@ namespace FieldBookingAPI.DTOs
         public bool Is24h { get; set; } 
         public string? HeroImage { get; set; }
         public string? Logo { get; set; }
+        public int? OwnerId { get; set; }
     }
 }
