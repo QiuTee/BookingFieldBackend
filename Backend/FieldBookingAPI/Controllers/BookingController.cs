@@ -144,9 +144,9 @@ namespace FieldBookingAPI.Controllers
             var safeDate = DateTime.SpecifyKind(date.Date, DateTimeKind.Utc);
 
             var slots = await _context.Bookings
-                .Where(b => b.FieldName == fieldName && b.Date == safeDate && b.Status == "confirmed")
+                .Where(b => b.FieldName == fieldName && b.Date == safeDate && ( b.Status == "confirmed" || b.Status == "paid"))
                 .SelectMany(b => b.Slots)
-                .Select(s => new { s.SubField, s.Time })
+                .Select(s => new { s.SubField, s.Time, Status = s.Booking.Status })
                 .ToListAsync();
 
             return Ok(slots);
