@@ -86,6 +86,7 @@ namespace FieldBookingAPI.Controllers
                 Is24h = field.Is24h,
                 Opentime = field.Opentime,
                 Closetime = field.Closetime,
+                OwnerId = field.OwnerId,
                 ImageUrls = field.Images?.Select(img => img.Url).ToList() ?? new(),
                 Services = field.Services?.Select(s => s.Name).ToList() ?? new(),
                 SubFieldNames = field.SubFields?.Select(s => s.Name).ToList() ?? new(),
