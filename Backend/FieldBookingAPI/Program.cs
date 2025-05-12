@@ -12,7 +12,6 @@ var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 var env = builder.Environment;
 
-// Load environment variables (e.g., JWT_KEY)
 DotNetEnv.Env.Load();
 builder.Configuration["Jwt:Key"] = Environment.GetEnvironmentVariable("JWT_KEY");
 
@@ -20,7 +19,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configure database connection
 var connectionString = config.GetConnectionString("DefaultConnection");
 if (string.IsNullOrEmpty(connectionString))
 {

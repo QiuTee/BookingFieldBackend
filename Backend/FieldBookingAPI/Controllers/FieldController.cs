@@ -65,14 +65,34 @@ namespace FieldBookingAPI.Controllers
                 .Include(f => f.Services)
                 .Include(f => f.Reviews)
                 .Include(f => f.SubFields)
+                .AsSplitQuery()
                 .FirstOrDefaultAsync(f => f.Slug == slug);
 
             if (field == null)
             {
                 return NotFound(new { message = "Không tìm thấy sân" });
             }
+            var dto = new FieldDto
+            {
+                Id = field.Id,
+                Name = field.Name,
+                Slug = field.Slug,
+                HeroImage = field.HeroImage,
+                Logo = field.Logo,
+                Location = field.Location,
+                Phone = field.Phone,
+                Type = field.Type,
+                Price = field.Price,
+                Is24h = field.Is24h,
+                Opentime = field.Opentime,
+                Closetime = field.Closetime,
+                ImageUrls = field.Images?.Select(img => img.Url).ToList() ?? new(),
+                Services = field.Services?.Select(s => s.Name).ToList() ?? new(),
+                SubFieldNames = field.SubFields?.Select(s => s.Name).ToList() ?? new(),
+                Reviews = field.Reviews?.Select(r => $"⭐ {r.Rating}: {r.Comment}").ToList() ?? new()
+            };
 
-            return Ok(field);
+            return Ok(dto);
         }
 
         [HttpPut("{id}")]
