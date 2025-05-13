@@ -33,6 +33,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<JwtTokenGenerator>();
 builder.Services.AddScoped<BookingCleanupService>();
+builder.Services.AddHostedService<BookingCleanupService>();
 
 
 builder.Services.AddCors(options =>
