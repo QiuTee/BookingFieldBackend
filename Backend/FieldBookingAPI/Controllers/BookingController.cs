@@ -165,9 +165,9 @@ namespace FieldBookingAPI.Controllers
             return Ok(booking);
         }
 
-        [HttpGet("owner-bookings")]
+        [HttpGet("owner-bookings/{slug}")]
         [Authorize(Roles = "admin, owner")]
-        public async Task<IActionResult> GetBookingForOnwer()
+        public async Task<IActionResult> GetBookingForOnwer(string slug)
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userIdClaim))
@@ -175,10 +175,19 @@ namespace FieldBookingAPI.Controllers
 
             var userId = int.Parse(userIdClaim);
 
+            var field = await _context.Fields
+                .FirstOrDefaultAsync(f => f.Slug == slug && f.OwnerId == userId);
+            
+            if (field == null){
+                return Forbid();
+            }
+
+            if (field == null){
+                return Forbid();
+            }
             var bookings = await _context.Bookings
                 .Include(b => b.Slots)
-                .Include(b => b.Field)
-                .Where(b => b.Field != null && b.Field.OwnerId == userId)
+                .Where(b => b.FieldId == field.Id)
                 .OrderByDescending(b => b.Date)
                 .ToListAsync();
 
