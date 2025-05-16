@@ -34,7 +34,7 @@ namespace FieldBookingAPI.Data
 
             modelBuilder.Entity<Booking>()
                 .Property(b => b.Status)
-                .HasDefaultValue("pending");
+                .HasDefaultValue("unpaid");
 
             modelBuilder.Entity<Booking>()
                 .Property(b => b.CreatedAt)

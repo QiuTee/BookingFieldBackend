@@ -38,7 +38,7 @@ namespace FieldBookingAPI.Controllers
                 UserName = dto.UserName,
                 Phone = dto.Phone,
                 Notes = dto.Notes,
-                Status = "pending",
+                Status = "unpaid",
                 CreatedAt = DateTime.UtcNow,
                 UserId = userId ,
                 FieldId = dto.FieldId,
@@ -124,7 +124,7 @@ namespace FieldBookingAPI.Controllers
             var expiredTime = nowUtc.AddMinutes(-30);
 
             var expiredBookings = await _context.Bookings
-                .Where(b => b.Status == "pending" && b.CreatedAt <= expiredTime)
+                .Where(b => b.Status == "unpaid" && b.CreatedAt <= expiredTime)
                 .ToListAsync();
 
             if (!expiredBookings.Any())
@@ -157,7 +157,7 @@ namespace FieldBookingAPI.Controllers
         {
             var booking = await _context.Bookings
                 .Include(b => b.Slots)
-                .FirstOrDefaultAsync(b => b.Id == id && ( b.Status == "confirmed" || b.Status == "pending"));
+                .FirstOrDefaultAsync(b => b.Id == id && ( b.Status == "confirmed" || b.Status == "unpaid"));
 
             if (booking == null)
                 return NotFound();

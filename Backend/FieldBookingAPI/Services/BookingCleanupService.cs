@@ -24,7 +24,7 @@ namespace FieldBookingAPI.Services
                     var now = DateTime.UtcNow;
                     var expiredTime = now.AddMinutes(-30);
                     var expiredBookings = await context.Bookings
-                        .Where(b => b.Status == "pending" && b.CreatedAt < expiredTime)
+                        .Where(b => b.Status == "unpaid" && b.CreatedAt < expiredTime)
                         .ToListAsync();
                     
                     if (expiredBookings.Any()){

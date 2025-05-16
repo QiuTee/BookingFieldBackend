@@ -38,7 +38,7 @@ namespace FieldBookingAPI.Migrations
                     UserName = table.Column<string>(type: "text", nullable: false),
                     Phone = table.Column<string>(type: "text", nullable: false),
                     Notes = table.Column<string>(type: "text", nullable: true),
-                    Status = table.Column<string>(type: "text", nullable: false, defaultValue: "pending"),
+                    Status = table.Column<string>(type: "text", nullable: false, defaultValue: "unpaid"),
                     UserId = table.Column<int>(type: "integer", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP(6)")
                 },

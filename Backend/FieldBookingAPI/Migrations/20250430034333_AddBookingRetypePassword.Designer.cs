@@ -56,7 +56,7 @@ namespace FieldBookingAPI.Migrations
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasDefaultValue("pending");
+                        .HasDefaultValue("unpaid");
 
                     b.Property<int>("UserId")
                         .HasColumnType("integer");

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FieldBookingAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250506164709_MakeUserIdNullableInBooking")]
-    partial class MakeUserIdNullableInBooking
+    [Migration("20250516033109_ChangeStatus")]
+    partial class ChangeStatus
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,11 +41,22 @@ namespace FieldBookingAPI.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int>("FieldId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("FieldName")
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsRead")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false);
+
                     b.Property<string>("Notes")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PaymentImageUrl")
                         .HasColumnType("text");
 
                     b.Property<string>("Phone")
@@ -58,6 +69,9 @@ namespace FieldBookingAPI.Migrations
                         .HasColumnType("text")
                         .HasDefaultValue("unpaid");
 
+                    b.Property<string>("StudentCardImageUrl")
+                        .HasColumnType("text");
+
                     b.Property<int?>("UserId")
                         .HasColumnType("integer");
 
@@ -66,6 +80,8 @@ namespace FieldBookingAPI.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FieldId");
 
                     b.HasIndex("UserId");
 
@@ -109,6 +125,9 @@ namespace FieldBookingAPI.Migrations
                     b.Property<string>("Closetime")
                         .HasColumnType("text");
 
+                    b.Property<int?>("CreatedByAdminId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("HeroImage")
                         .HasColumnType("text");
 
@@ -148,6 +167,8 @@ namespace FieldBookingAPI.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatedByAdminId");
 
                     b.HasIndex("OwnerId");
 
@@ -265,6 +286,10 @@ namespace FieldBookingAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
@@ -272,9 +297,17 @@ namespace FieldBookingAPI.Migrations
 
             modelBuilder.Entity("FieldBookingAPI.Models.Booking", b =>
                 {
+                    b.HasOne("FieldBookingAPI.Models.Field", "Field")
+                        .WithMany()
+                        .HasForeignKey("FieldId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("FieldBookingAPI.Models.User", "User")
                         .WithMany("Bookings")
                         .HasForeignKey("UserId");
+
+                    b.Navigation("Field");
 
                     b.Navigation("User");
                 });
@@ -292,11 +325,18 @@ namespace FieldBookingAPI.Migrations
 
             modelBuilder.Entity("FieldBookingAPI.Models.Field", b =>
                 {
+                    b.HasOne("FieldBookingAPI.Models.User", "CreatedByAdmin")
+                        .WithMany()
+                        .HasForeignKey("CreatedByAdminId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("FieldBookingAPI.Models.User", "Owner")
                         .WithMany("Fields")
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("CreatedByAdmin");
 
                     b.Navigation("Owner");
                 });

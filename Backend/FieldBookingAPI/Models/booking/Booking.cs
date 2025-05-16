@@ -11,7 +11,7 @@ namespace FieldBookingAPI.Models
     public string UserName { get; set; } = null!;
     public string Phone { get; set; } = null!;
     public string? Notes { get; set; }
-    public string Status { get; set; } = "pending"; 
+    public string Status { get; set; } = "unpaid"; 
     public string? PaymentImageUrl { get; set; }
     public string? StudentCardImageUrl { get; set; }
     public bool IsRead { get; set; } = false;
