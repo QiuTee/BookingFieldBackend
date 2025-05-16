@@ -220,7 +220,6 @@ namespace FieldBookingAPI.Controllers
             var booking = await _context.Bookings
                 .Include(b => b.Field)
                 .FirstOrDefaultAsync(b => b.Id == id && b.Field != null && b.Field.OwnerId == userId);
-
             if (booking == null)
                 return NotFound();
 
