@@ -144,7 +144,7 @@ namespace FieldBookingAPI.Controllers
             var safeDate = DateTime.SpecifyKind(date.Date, DateTimeKind.Utc);
 
             var slots = await _context.Bookings
-                .Where(b => b.FieldName == fieldName && b.Date == safeDate && ( b.Status == "confirmed" || b.Status == "paid"))
+                .Where(b => b.FieldName == fieldName && b.Date == safeDate && ( b.Status == "confirmed_paid" || b.Status == "paid" || b.Status =="confirmed_deposit"))
                 .SelectMany(b => b.Slots)
                 .Select(s => new { s.SubField, s.Time, Status = s.Booking.Status })
                 .ToListAsync();
@@ -157,7 +157,7 @@ namespace FieldBookingAPI.Controllers
         {
             var booking = await _context.Bookings
                 .Include(b => b.Slots)
-                .FirstOrDefaultAsync(b => b.Id == id && ( b.Status == "confirmed" || b.Status == "unpaid"));
+                .FirstOrDefaultAsync(b => b.Id == id && ( b.Status == "confirmed_paid" || b.Status == "unpaid" || b.Status == "confirmed_deposit"));
 
             if (booking == null)
                 return NotFound();
@@ -202,7 +202,15 @@ namespace FieldBookingAPI.Controllers
             if (booking == null)
                 return NotFound();
 
-            booking.Status = dto.Status.ToLower();
+            if (!string.IsNullOrWhiteSpace(dto.Status))
+            {
+                booking.Status = dto.Status.ToLower();
+            }
+
+            if (!string.IsNullOrWhiteSpace(dto.ProcessStatus))
+            {
+                booking.ProcessStatus = dto.ProcessStatus.ToLower();
+            }
             await _context.SaveChangesAsync();
             return Ok(new { message = "Cập nhật trạng thái đơn thành công" });
         }

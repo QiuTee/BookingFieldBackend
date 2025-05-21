@@ -15,6 +15,7 @@ namespace FieldBookingAPI.Models
     public string? PaymentImageUrl { get; set; }
     public string? StudentCardImageUrl { get; set; }
     public bool IsRead { get; set; } = false;
+    public string? ProcessStatus { get; set; }
     public int? UserId { get; set; } 
     public User? User { get; set; }
     public int FieldId { get; set; }
