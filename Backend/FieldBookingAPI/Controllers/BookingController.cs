@@ -138,15 +138,18 @@ namespace FieldBookingAPI.Controllers
             return Ok(new { message = $"Đã huỷ {expiredBookings.Count} đơn quá hạn thanh toán." });
         }
 
-        [HttpGet("booked-slots")]
-        public async Task<IActionResult> GetBookedSlots([FromQuery] string fieldName, [FromQuery] DateTime date)
+        [HttpGet("booked-slots")] 
+        public async Task<IActionResult> GetBookedSlots([FromQuery] string slug, [FromQuery] DateTime date)
         {
             var safeDate = DateTime.SpecifyKind(date.Date, DateTimeKind.Utc);
-
+            var field = await _context.Fields
+                .FirstOrDefaultAsync(f => f.Slug == slug);
+            if (field == null)
+                return NotFound(new { message = "Sân không tồn tại" });
             var slots = await _context.Bookings
-                .Where(b => b.FieldName == fieldName && b.Date == safeDate && ( b.Status == "confirmed_paid" || b.Status == "paid" || b.Status =="confirmed_deposit"))
+                .Where(b => b.FieldId == field.Id && b.Date == safeDate && ( b.Status == "confirmed_paid" || b.Status == "paid" || b.Status =="confirmed_deposit"))
                 .SelectMany(b => b.Slots)
-                .Select(s => new { s.SubField, s.Time, Status = s.Booking.Status })
+                .Select(s => new { s.SubField, s.Time, s.Booking.Status , s.Booking.UserName , s.Booking.Phone , s.Booking.Id})
                 .ToListAsync();
 
             return Ok(slots);
