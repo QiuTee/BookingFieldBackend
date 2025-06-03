@@ -7,7 +7,6 @@ namespace FieldBookingAPI.Models
     public int Id { get; set; }
     public string FieldName { get; set; } = null!;
     public DateTime Date { get; set; }
-
     public string UserName { get; set; } = null!;
     public string Phone { get; set; } = null!;
     public string? Notes { get; set; }

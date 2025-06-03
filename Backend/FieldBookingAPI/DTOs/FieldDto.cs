@@ -14,6 +14,7 @@ namespace FieldBookingAPI.DTOs
         public bool Is24h { get; set; }
         public string? Opentime { get; set; }
         public string? Closetime { get; set; }
+        public string? Status { get; set; }
         public int OwnerId { get; set; }
         public List<string> ImageUrls { get; set; } = new();
         public List<string> Services { get; set; } = new();

@@ -24,8 +24,9 @@ namespace FieldBookingAPI.Controllers
         {
             int? userId = null;
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            
-            if (!string.IsNullOrEmpty(userIdClaim)){
+
+            if (!string.IsNullOrEmpty(userIdClaim))
+            {
                 userId = int.Parse(userIdClaim);
             }
 
@@ -40,7 +41,7 @@ namespace FieldBookingAPI.Controllers
                 Notes = dto.Notes,
                 Status = "unpaid",
                 CreatedAt = DateTime.UtcNow,
-                UserId = userId ,
+                UserId = userId,
                 FieldId = dto.FieldId,
                 Slots = dto.Slots.Select(s => new BookingSlot
                 {
@@ -64,12 +65,12 @@ namespace FieldBookingAPI.Controllers
 
         [AllowAnonymous]
         [HttpPut("{id}/confirm-payment")]
-        public async Task<IActionResult> ConfirmPayment(int id, [FromBody] PaymentConfirmationDto  dto)
+        public async Task<IActionResult> ConfirmPayment(int id, [FromBody] PaymentConfirmationDto dto)
         {
             var booking = await _context.Bookings.FindAsync(id);
             if (booking == null)
                 return NotFound();
-            
+
             booking.Status = "paid";
             booking.PaymentImageUrl = dto.PaymentImageUrl;
             booking.StudentCardImageUrl = dto.StudentCardImageUrl;
@@ -138,7 +139,7 @@ namespace FieldBookingAPI.Controllers
             return Ok(new { message = $"Đã huỷ {expiredBookings.Count} đơn quá hạn thanh toán." });
         }
 
-        [HttpGet("booked-slots")] 
+        [HttpGet("booked-slots")]
         public async Task<IActionResult> GetBookedSlots([FromQuery] string slug, [FromQuery] DateTime date)
         {
             var safeDate = DateTime.SpecifyKind(date.Date, DateTimeKind.Utc);
@@ -147,9 +148,9 @@ namespace FieldBookingAPI.Controllers
             if (field == null)
                 return NotFound(new { message = "Sân không tồn tại" });
             var slots = await _context.Bookings
-                .Where(b => b.FieldId == field.Id && b.Date == safeDate && ( b.Status == "confirmed_paid" || b.Status == "paid" || b.Status =="confirmed_deposit"))
+                .Where(b => b.FieldId == field.Id && b.Date == safeDate && (b.Status == "confirmed_paid" || b.Status == "paid" || b.Status == "confirmed_deposit"))
                 .SelectMany(b => b.Slots)
-                .Select(s => new { s.SubField, s.Time, s.Booking.Status , s.Booking.UserName , s.Booking.Phone , s.Booking.Id})
+                .Select(s => new { s.SubField, s.Time, s.Booking.Status, s.Booking.UserName, s.Booking.Phone, s.Booking.Id })
                 .ToListAsync();
 
             return Ok(slots);
@@ -160,7 +161,7 @@ namespace FieldBookingAPI.Controllers
         {
             var booking = await _context.Bookings
                 .Include(b => b.Slots)
-                .FirstOrDefaultAsync(b => b.Id == id && ( b.Status == "confirmed_paid" || b.Status == "unpaid" || b.Status == "confirmed_deposit"));
+                .FirstOrDefaultAsync(b => b.Id == id && (b.Status == "confirmed_paid" || b.Status == "unpaid" || b.Status == "confirmed_deposit"));
 
             if (booking == null)
                 return NotFound();
@@ -180,12 +181,14 @@ namespace FieldBookingAPI.Controllers
 
             var field = await _context.Fields
                 .FirstOrDefaultAsync(f => f.Slug == slug && f.OwnerId == userId);
-            
-            if (field == null){
+
+            if (field == null)
+            {
                 return Forbid();
             }
 
-            if (field == null){
+            if (field == null)
+            {
                 return Forbid();
             }
             var bookings = await _context.Bookings
@@ -199,7 +202,7 @@ namespace FieldBookingAPI.Controllers
 
         [HttpPut("{id}/update-status")]
         [Authorize(Roles = "admin, owner")]
-        public async Task<IActionResult> UpdateBookingStatus(int id, [FromBody]  StatusUpdateDto dto)
+        public async Task<IActionResult> UpdateBookingStatus(int id, [FromBody] StatusUpdateDto dto)
         {
             var booking = await _context.Bookings.FindAsync(id);
             if (booking == null)
@@ -238,6 +241,34 @@ namespace FieldBookingAPI.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "Đã đánh dấu đã đọc" });
+        }
+
+
+        [Authorize(Roles = "owner , admin")]
+        [HttpGet("today-summary")]
+        public async Task<IActionResult> GetBookingToday()
+        {
+            var today = DateTime.UtcNow.Date;
+            var tommorrow = today.AddDays(1);
+
+            var todayBooking = await _context.Bookings
+                .Include(b => b.Field)
+                .Where(b => b.CreatedAt >= today && b.CreatedAt < tommorrow)
+                .ToListAsync();
+
+            var totalBooking = todayBooking.Count;
+
+            var bookingTodayByField = todayBooking
+                .GroupBy(b => new { b.FieldId, b.Field!.Name })
+                .Select(g => new
+                {
+                    FieldId = g.Key.FieldId ,
+                    Name = g.Key.Name , 
+                    BookingCount = g.Count()
+                })
+                .ToList();
+
+            return Ok( new {totalBooking , bookingTodayByField});
         }
 
     }

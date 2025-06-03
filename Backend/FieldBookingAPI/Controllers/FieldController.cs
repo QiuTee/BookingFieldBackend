@@ -40,13 +40,14 @@ namespace FieldBookingAPI.Controllers
             {
                 Name = dto.Name,
                 Location = dto.Location,
-                Phone = dto.Phone, 
+                Phone = dto.Phone,
                 Type = dto.Type,
                 Price = dto.Price,
                 Opentime = dto.Opentime,
                 Closetime = dto.Closetime,
                 Is24h = dto.Is24h,
                 HeroImage = dto.HeroImage,
+                Status = dto.Status,
                 Logo = dto.Logo,
                 Slug = slug,
                 OwnerId = dto.OwnerId ?? userId,
@@ -104,7 +105,7 @@ namespace FieldBookingAPI.Controllers
             var field = await _context.Fields.FindAsync(id);
             var userRoke = User.FindFirst(ClaimTypes.Role)?.Value;
 
-            if(field == null )
+            if (field == null)
             {
                 return NotFound();
             }
@@ -124,14 +125,14 @@ namespace FieldBookingAPI.Controllers
             field.Closetime = updatedField.Closetime;
             field.Is24h = updatedField.Is24h;
             field.Logo = updatedField.Logo;
-            field.HeroImage = updatedField.HeroImage;            
+            field.HeroImage = updatedField.HeroImage;
 
             await _context.SaveChangesAsync();
             return Ok(field);
         }
 
         [HttpGet("my-fields")]
-        [Authorize]
+        [Authorize(Roles ="owner,admin")]
         public async Task<IActionResult> GetMyFields()
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
@@ -141,10 +142,34 @@ namespace FieldBookingAPI.Controllers
                 .Include(f => f.Services)
                 .Include(f => f.Reviews)
                 .Include(f => f.SubFields)
+                .AsSplitQuery()
                 .ToListAsync();
+            
+            var fieldDtos = fields.Select(field => new FieldDto
+            {
+                Id = field.Id,
+                Name = field.Name,
+                Slug = field.Slug,
+                HeroImage = field.HeroImage,
+                Logo = field.Logo,
+                Location = field.Location,
+                Phone = field.Phone,
+                Type = field.Type,
+                Price = field.Price,
+                Is24h = field.Is24h,
+                Opentime = field.Opentime,
+                Closetime = field.Closetime,
+                OwnerId = field.OwnerId,
+                Status = field.Status , 
+                ImageUrls = field.Images?.Select(img => img.Url).ToList() ?? new(),
+                Services = field.Services?.Select(s => s.Name).ToList() ?? new(),
+                SubFieldNames = field.SubFields?.Select(s => s.Name).ToList() ?? new(),
+                Reviews = field.Reviews?.Select(r => $"⭐ {r.Rating}: {r.Comment}").ToList() ?? new()
+            }).ToList();
 
-            return Ok(fields);
+            return Ok(fieldDtos);
         }
+        
         
     }
 

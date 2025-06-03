@@ -9,6 +9,7 @@ namespace FieldBookingAPI.DTOs
         public int Price { get; set; }
         public string? Opentime { get; set; } 
         public string? Closetime { get; set; }
+        public string? Status { get; set; }
         public bool Is24h { get; set; } 
         public string? HeroImage { get; set; }
         public string? Logo { get; set; }
