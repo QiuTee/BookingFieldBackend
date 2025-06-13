@@ -14,8 +14,13 @@ namespace FieldBookingAPI.Models
     public string? PaymentImageUrl { get; set; }
     public string? StudentCardImageUrl { get; set; }
     public bool IsRead { get; set; } = false;
+    public int TotalPrice { get; set; } = 0;
     public string? ProcessStatus { get; set; }
     public int? UserId { get; set; } 
+    public string? VoucherCode { set; get; }
+    public int? DiscountAmount { set; get; }
+    public int? VoucherId { get; set; }
+    public Voucher? Voucher { get; set; }
     public User? User { get; set; }
     public int FieldId { get; set; }
     public Field? Field { get; set; }

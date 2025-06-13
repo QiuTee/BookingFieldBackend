@@ -15,6 +15,7 @@ namespace FieldBookingAPI.Data
         public DbSet<FieldService> FieldServices => Set<FieldService>();
         public DbSet<FieldReview> FieldReviews => Set<FieldReview>();
         public DbSet<SubField> SubFields => Set<SubField>();
+        public DbSet<Voucher> Vouchers => Set<Voucher>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -45,10 +46,16 @@ namespace FieldBookingAPI.Data
                 .WithMany()
                 .HasForeignKey(b => b.FieldId)
                 .OnDelete(DeleteBehavior.Restrict);
-            
+
             modelBuilder.Entity<Booking>()
                 .Property(b => b.IsRead)
                 .HasDefaultValue(false);
+
+            modelBuilder.Entity<Booking>()
+                .HasOne(b => b.Voucher)
+                .WithMany()
+                .HasForeignKey(b => b.VoucherId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<Field>()
                 .HasOne(f => f.Owner)
@@ -56,10 +63,10 @@ namespace FieldBookingAPI.Data
                 .HasForeignKey(f => f.OwnerId);
 
             modelBuilder.Entity<Field>()
-                .HasOne(f => f.CreatedByAdmin) 
+                .HasOne(f => f.CreatedByAdmin)
                 .WithMany()
                 .HasForeignKey(f => f.CreatedByAdminId)
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Field>()
                 .HasMany(f => f.Images)

@@ -39,6 +39,7 @@ namespace FieldBookingAPI.Controllers
                 UserName = dto.UserName,
                 Phone = dto.Phone,
                 Notes = dto.Notes,
+                TotalPrice = dto.TotalPrice,
                 Status = "unpaid",
                 CreatedAt = DateTime.UtcNow,
                 UserId = userId,
@@ -74,6 +75,9 @@ namespace FieldBookingAPI.Controllers
             booking.Status = "paid";
             booking.PaymentImageUrl = dto.PaymentImageUrl;
             booking.StudentCardImageUrl = dto.StudentCardImageUrl;
+            booking.VoucherCode = dto.VoucherCode;
+            booking.DiscountAmount = dto.DiscountAmount;
+            booking.VoucherId = dto.VoucherId;
 
             await _context.SaveChangesAsync();
             return Ok(new { message = "Xác nhận thanh toán thành công" });
@@ -91,11 +95,14 @@ namespace FieldBookingAPI.Controllers
 
             var bookings = await _context.Bookings
                 .Include(b => b.Slots)
+                .Include(b => b.Field)
                 .Where(b => b.UserId == userId)
                 .OrderByDescending(b => b.Date)
                 .ToListAsync();
 
-            return Ok(bookings);
+            var bookingDtos = bookings.Select(BookingSummaryDto.FromModel).ToList();
+
+            return Ok(bookingDtos);
         }
 
         [HttpGet("{id}")]
@@ -110,11 +117,12 @@ namespace FieldBookingAPI.Controllers
 
             var booking = await _context.Bookings
                 .Include(b => b.Slots)
+                .Include(b => b.Field)
                 .FirstOrDefaultAsync(b => b.Id == id && b.UserId == userId);
 
             if (booking == null)
                 return NotFound();
-
+            var bookingDto = BookingSummaryDto.FromModel(booking);
             return Ok(booking);
         }
 
@@ -161,11 +169,13 @@ namespace FieldBookingAPI.Controllers
         {
             var booking = await _context.Bookings
                 .Include(b => b.Slots)
+                .Include(b => b.Field)
                 .FirstOrDefaultAsync(b => b.Id == id && (b.Status == "confirmed_paid" || b.Status == "unpaid" || b.Status == "confirmed_deposit"));
 
             if (booking == null)
-                return NotFound();
+                return NotFound ();
 
+            var bookingDto = BookingSummaryDto.FromModel(booking);
             return Ok(booking);
         }
 

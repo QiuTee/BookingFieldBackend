@@ -3,6 +3,7 @@ using System;
 using FieldBookingAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FieldBookingAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250612032019_Voucher")]
+    partial class Voucher
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +40,6 @@ namespace FieldBookingAPI.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<int?>("DiscountAmount")
-                        .HasColumnType("integer");
 
                     b.Property<int>("FieldId")
                         .HasColumnType("integer");
@@ -85,19 +85,11 @@ namespace FieldBookingAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("VoucherCode")
-                        .HasColumnType("text");
-
-                    b.Property<int?>("VoucherId")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
 
                     b.HasIndex("FieldId");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("VoucherId");
 
                     b.ToTable("Bookings");
                 });
@@ -357,16 +349,9 @@ namespace FieldBookingAPI.Migrations
                         .WithMany("Bookings")
                         .HasForeignKey("UserId");
 
-                    b.HasOne("FieldBookingAPI.Models.Voucher", "Voucher")
-                        .WithMany()
-                        .HasForeignKey("VoucherId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
                     b.Navigation("Field");
 
                     b.Navigation("User");
-
-                    b.Navigation("Voucher");
                 });
 
             modelBuilder.Entity("FieldBookingAPI.Models.BookingSlot", b =>

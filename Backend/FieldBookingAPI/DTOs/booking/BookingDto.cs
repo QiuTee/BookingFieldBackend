@@ -14,11 +14,10 @@ namespace FieldBookingAPI.DTOs
         public List<BookingSlotDto> Slots { get; set; } = new();
 
         public string UserName { get; set; } = null!;
-
+        public int TotalPrice { get; set; } = 0;
         public string Phone { get; set; } = null!;
 
         public string? Notes { get; set; }
-        
         public int FieldId { get; set; }
     }
 }
