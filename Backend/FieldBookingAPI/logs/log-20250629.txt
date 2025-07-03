@@ -1,0 +1,149 @@
+2025-06-29 22:34:23.534 +07:00 [INF] Starting web application host
+2025-06-29 22:34:25.224 +07:00 [INF] Now listening on: http://localhost:5109
+2025-06-29 22:34:25.227 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-29 22:34:25.228 +07:00 [INF] Hosting environment: Development
+2025-06-29 22:34:25.229 +07:00 [INF] Content root path: C:\Users\Asus VN\Documents\bo\Sports Field Booking Platform\Backend\FieldBookingAPI
+2025-06-29 22:34:25.756 +07:00 [INF] Executed DbCommand (68ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-29 22:34:44.820 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-06-29 22:34:44.820 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/pooc_cau_long__pickleball - null null
+2025-06-29 22:34:44.859 +07:00 [INF] CORS policy execution successful.
+2025-06-29 22:34:44.859 +07:00 [INF] CORS policy execution successful.
+2025-06-29 22:34:44.892 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-06-29 22:34:44.895 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-06-29 22:34:44.899 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-29 22:34:44.903 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 61.0717 ms
+2025-06-29 22:34:44.915 +07:00 [INF] Route matched with {action = "GetFieldBySlug", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFieldBySlug(System.String) on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-06-29 22:34:44.918 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 100.3403ms
+2025-06-29 22:34:44.926 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-06-29 22:34:44.930 +07:00 [INF] CORS policy execution successful.
+2025-06-29 22:34:44.933 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-06-29 22:34:44.934 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-29 22:34:44.936 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 6.6998 ms
+2025-06-29 22:34:44.943 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 17.2892ms
+2025-06-29 22:34:45.120 +07:00 [INF] Executed DbCommand (31ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+ORDER BY f."Id"
+LIMIT 1
+2025-06-29 22:34:45.221 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f3."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f3
+INNER JOIN "FieldImages" AS f0 ON f3."Id" = f0."FieldId"
+ORDER BY f3."Id"
+2025-06-29 22:34:45.266 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f4."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f4
+INNER JOIN "FieldServices" AS f1 ON f4."Id" = f1."FieldId"
+ORDER BY f4."Id"
+2025-06-29 22:34:45.302 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f5."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f5
+INNER JOIN "FieldReviews" AS f2 ON f5."Id" = f2."FieldId"
+ORDER BY f5."Id"
+2025-06-29 22:34:45.333 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", f6."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f6
+INNER JOIN "SubFields" AS s ON f6."Id" = s."FieldId"
+ORDER BY f6."Id"
+2025-06-29 22:34:45.356 +07:00 [INF] Executing OkObjectResult, writing value of type 'FieldBookingAPI.DTOs.FieldDto'.
+2025-06-29 22:34:45.393 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/pooc_cau_long__pickleball - null null
+2025-06-29 22:34:45.395 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI) in 473.7437ms
+2025-06-29 22:34:45.397 +07:00 [INF] CORS policy execution successful.
+2025-06-29 22:34:45.397 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-06-29 22:34:45.398 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-06-29 22:34:45.399 +07:00 [INF] HTTP GET /api/field/pooc_cau_long__pickleball responded 200 in 559.0401 ms
+2025-06-29 22:34:45.401 +07:00 [INF] Route matched with {action = "GetFieldBySlug", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFieldBySlug(System.String) on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-06-29 22:34:45.405 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/pooc_cau_long__pickleball - 200 null application/json; charset=utf-8 587.6154ms
+2025-06-29 22:34:45.446 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+ORDER BY f."Id"
+LIMIT 1
+2025-06-29 22:34:45.490 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f3."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f3
+INNER JOIN "FieldImages" AS f0 ON f3."Id" = f0."FieldId"
+ORDER BY f3."Id"
+2025-06-29 22:34:45.519 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f4."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f4
+INNER JOIN "FieldServices" AS f1 ON f4."Id" = f1."FieldId"
+ORDER BY f4."Id"
+2025-06-29 22:34:45.561 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f5."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f5
+INNER JOIN "FieldReviews" AS f2 ON f5."Id" = f2."FieldId"
+ORDER BY f5."Id"
+2025-06-29 22:34:45.590 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", f6."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f6
+INNER JOIN "SubFields" AS s ON f6."Id" = s."FieldId"
+ORDER BY f6."Id"
+2025-06-29 22:34:45.594 +07:00 [INF] Executing OkObjectResult, writing value of type 'FieldBookingAPI.DTOs.FieldDto'.
+2025-06-29 22:34:45.595 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI) in 192.3834ms
+2025-06-29 22:34:45.596 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-06-29 22:34:45.597 +07:00 [INF] HTTP GET /api/field/pooc_cau_long__pickleball responded 200 in 201.9831 ms
+2025-06-29 22:34:45.600 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/pooc_cau_long__pickleball - 200 null application/json; charset=utf-8 206.5565ms
+2025-06-29 22:39:25.816 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-29 22:44:26.187 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-29 22:49:26.228 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-29 22:54:26.586 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0

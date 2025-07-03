@@ -38,6 +38,10 @@ namespace FieldBookingAPI.Data
                 .HasDefaultValue("unpaid");
 
             modelBuilder.Entity<Booking>()
+                .HasIndex(b => b.BookingCode)
+                .IsUnique();
+
+            modelBuilder.Entity<Booking>()
                 .Property(b => b.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
 

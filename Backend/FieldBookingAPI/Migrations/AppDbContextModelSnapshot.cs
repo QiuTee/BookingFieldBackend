@@ -30,6 +30,10 @@ namespace FieldBookingAPI.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("BookingCode")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
@@ -93,6 +97,9 @@ namespace FieldBookingAPI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BookingCode")
+                        .IsUnique();
+
                     b.HasIndex("FieldId");
 
                     b.HasIndex("UserId");
@@ -141,6 +148,9 @@ namespace FieldBookingAPI.Migrations
 
                     b.Property<int?>("CreatedByAdminId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("FaceBook")
+                        .HasColumnType("text");
 
                     b.Property<string>("HeroImage")
                         .HasColumnType("text");
@@ -254,6 +264,9 @@ namespace FieldBookingAPI.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("Price")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FieldId");
@@ -273,6 +286,10 @@ namespace FieldBookingAPI.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("text");
 

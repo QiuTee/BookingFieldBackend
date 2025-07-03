@@ -1,0 +1,952 @@
+2025-07-03 09:02:01.537 +07:00 [INF] Starting web application host
+2025-07-03 09:02:05.464 +07:00 [INF] Now listening on: http://localhost:5109
+2025-07-03 09:02:05.472 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-03 09:02:05.474 +07:00 [INF] Hosting environment: Development
+2025-07-03 09:02:05.475 +07:00 [INF] Content root path: C:\Users\Asus VN\Documents\bo\Sports Field Booking Platform\Backend\FieldBookingAPI
+2025-07-03 09:02:06.068 +07:00 [INF] Executed DbCommand (138ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-07-03 09:02:17.592 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-07-03 09:02:17.679 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:17.749 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-07-03 09:02:17.759 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-07-03 09:02:17.765 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 132.5801 ms
+2025-07-03 09:02:17.789 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 200.1922ms
+2025-07-03 09:02:17.799 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-07-03 09:02:17.809 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:17.815 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-07-03 09:02:17.817 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-07-03 09:02:17.819 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 12.9798 ms
+2025-07-03 09:02:17.823 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 24.2921ms
+2025-07-03 09:02:27.297 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field - null null
+2025-07-03 09:02:27.307 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-07-03 09:02:27.319 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:27.319 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:27.328 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-07-03 09:02:27.333 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-07-03 09:02:27.333 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-07-03 09:02:27.339 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 19.5111 ms
+2025-07-03 09:02:27.343 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 35.5867ms
+2025-07-03 09:02:27.350 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-07-03 09:02:27.357 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:27.359 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-07-03 09:02:27.361 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-07-03 09:02:27.364 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 6.8002 ms
+2025-07-03 09:02:27.368 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 18.4014ms
+2025-07-03 09:02:27.383 +07:00 [INF] Route matched with {action = "GetAllFields", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllFields() on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:02:27.898 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+ORDER BY f."Id"
+2025-07-03 09:02:28.166 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldImages" AS f0 ON f."Id" = f0."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:28.262 +07:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldServices" AS f1 ON f."Id" = f1."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:28.310 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldReviews" AS f2 ON f."Id" = f2."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:28.362 +07:00 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f."Id"
+FROM "Fields" AS f
+INNER JOIN "SubFields" AS s ON f."Id" = s."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:28.435 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.DTOs.FieldDto, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:02:28.505 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field - null null
+2025-07-03 09:02:28.509 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:28.511 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-07-03 09:02:28.513 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI) in 1112.4806ms
+2025-07-03 09:02:28.515 +07:00 [INF] Route matched with {action = "GetAllFields", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllFields() on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:02:28.519 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-07-03 09:02:28.523 +07:00 [INF] HTTP GET /api/field responded 200 in 1215.7465 ms
+2025-07-03 09:02:28.536 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field - 200 null application/json; charset=utf-8 1239.4198ms
+2025-07-03 09:02:28.600 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+ORDER BY f."Id"
+2025-07-03 09:02:28.646 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldImages" AS f0 ON f."Id" = f0."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:28.690 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldServices" AS f1 ON f."Id" = f1."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:28.734 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldReviews" AS f2 ON f."Id" = f2."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:28.779 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f."Id"
+FROM "Fields" AS f
+INNER JOIN "SubFields" AS s ON f."Id" = s."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:28.785 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.DTOs.FieldDto, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:02:28.790 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI) in 271.3659ms
+2025-07-03 09:02:28.793 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-07-03 09:02:28.795 +07:00 [INF] HTTP GET /api/field responded 200 in 286.2330 ms
+2025-07-03 09:02:28.800 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field - 200 null application/json; charset=utf-8 294.7816ms
+2025-07-03 09:02:32.291 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_pickleball_hoang_long&date=2025-07-03 - null null
+2025-07-03 09:02:32.305 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:32.308 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:02:32.339 +07:00 [INF] Route matched with {action = "GetBookedSlots", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookedSlots(System.String, System.DateTime) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:02:32.449 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+LIMIT 1
+2025-07-03 09:02:32.546 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[@__field_Id_0='?' (DbType = Int32), @__safeDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."SubField", b0."Time", b1."Status", b1."UserName", b1."Phone", b1."Id", b1."BookingCode"
+FROM "Bookings" AS b
+INNER JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+INNER JOIN "Bookings" AS b1 ON b0."BookingId" = b1."Id"
+WHERE b."FieldId" = @__field_Id_0 AND b."Date" = @__safeDate_1 AND b."Status" <> 'canceled'
+2025-07-03 09:02:32.552 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`7[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:02:32.570 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI) in 227.0723ms
+2025-07-03 09:02:32.574 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:02:32.577 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_pickleball_hoang_long&date=2025-07-03 - null null
+2025-07-03 09:02:32.577 +07:00 [INF] HTTP GET /api/booking/booked-slots responded 200 in 271.8802 ms
+2025-07-03 09:02:32.586 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_pickleball_hoang_long&date=2025-07-03 - 200 null application/json; charset=utf-8 294.9936ms
+2025-07-03 09:02:32.593 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:32.595 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:02:32.597 +07:00 [INF] Route matched with {action = "GetBookedSlots", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookedSlots(System.String, System.DateTime) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:02:32.649 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+LIMIT 1
+2025-07-03 09:02:32.695 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[@__field_Id_0='?' (DbType = Int32), @__safeDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."SubField", b0."Time", b1."Status", b1."UserName", b1."Phone", b1."Id", b1."BookingCode"
+FROM "Bookings" AS b
+INNER JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+INNER JOIN "Bookings" AS b1 ON b0."BookingId" = b1."Id"
+WHERE b."FieldId" = @__field_Id_0 AND b."Date" = @__safeDate_1 AND b."Status" <> 'canceled'
+2025-07-03 09:02:32.700 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`7[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:02:32.704 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI) in 100.317ms
+2025-07-03 09:02:32.707 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:02:32.709 +07:00 [INF] HTTP GET /api/booking/booked-slots responded 200 in 123.1236 ms
+2025-07-03 09:02:32.713 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_pickleball_hoang_long&date=2025-07-03 - 200 null application/json; charset=utf-8 135.9373ms
+2025-07-03 09:02:38.293 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_pickleball_hoang_long&date=2025-07-03 - null null
+2025-07-03 09:02:38.298 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:38.301 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:02:38.305 +07:00 [INF] Route matched with {action = "GetBookedSlots", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookedSlots(System.String, System.DateTime) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:02:38.351 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+LIMIT 1
+2025-07-03 09:02:38.399 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__field_Id_0='?' (DbType = Int32), @__safeDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."SubField", b0."Time", b1."Status", b1."UserName", b1."Phone", b1."Id", b1."BookingCode"
+FROM "Bookings" AS b
+INNER JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+INNER JOIN "Bookings" AS b1 ON b0."BookingId" = b1."Id"
+WHERE b."FieldId" = @__field_Id_0 AND b."Date" = @__safeDate_1 AND b."Status" <> 'canceled'
+2025-07-03 09:02:38.406 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`7[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:02:38.409 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI) in 99.5278ms
+2025-07-03 09:02:38.411 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:02:38.413 +07:00 [INF] HTTP GET /api/booking/booked-slots responded 200 in 115.1337 ms
+2025-07-03 09:02:38.417 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_pickleball_hoang_long&date=2025-07-03 - 200 null application/json; charset=utf-8 124.0725ms
+2025-07-03 09:02:44.298 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_pickleball_hoang_long&date=2025-07-03 - null null
+2025-07-03 09:02:44.303 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:44.306 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:02:44.310 +07:00 [INF] Route matched with {action = "GetBookedSlots", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookedSlots(System.String, System.DateTime) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:02:44.355 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+LIMIT 1
+2025-07-03 09:02:44.401 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[@__field_Id_0='?' (DbType = Int32), @__safeDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."SubField", b0."Time", b1."Status", b1."UserName", b1."Phone", b1."Id", b1."BookingCode"
+FROM "Bookings" AS b
+INNER JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+INNER JOIN "Bookings" AS b1 ON b0."BookingId" = b1."Id"
+WHERE b."FieldId" = @__field_Id_0 AND b."Date" = @__safeDate_1 AND b."Status" <> 'canceled'
+2025-07-03 09:02:44.408 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`7[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:02:44.411 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI) in 96.7722ms
+2025-07-03 09:02:44.414 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:02:44.416 +07:00 [INF] HTTP GET /api/booking/booked-slots responded 200 in 113.0645 ms
+2025-07-03 09:02:44.421 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_pickleball_hoang_long&date=2025-07-03 - 200 null application/json; charset=utf-8 122.6548ms
+2025-07-03 09:02:50.135 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field - null null
+2025-07-03 09:02:50.148 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:50.150 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-07-03 09:02:50.152 +07:00 [INF] Route matched with {action = "GetAllFields", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllFields() on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:02:50.195 +07:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+ORDER BY f."Id"
+2025-07-03 09:02:50.239 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldImages" AS f0 ON f."Id" = f0."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:50.283 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldServices" AS f1 ON f."Id" = f1."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:50.327 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldReviews" AS f2 ON f."Id" = f2."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:50.369 +07:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f."Id"
+FROM "Fields" AS f
+INNER JOIN "SubFields" AS s ON f."Id" = s."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:50.376 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.DTOs.FieldDto, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:02:50.380 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI) in 223.9762ms
+2025-07-03 09:02:50.382 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-07-03 09:02:50.384 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field - null null
+2025-07-03 09:02:50.384 +07:00 [INF] HTTP GET /api/field responded 200 in 236.0560 ms
+2025-07-03 09:02:50.393 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:02:50.393 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field - 200 null application/json; charset=utf-8 258.3857ms
+2025-07-03 09:02:50.401 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-07-03 09:02:50.403 +07:00 [INF] Route matched with {action = "GetAllFields", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllFields() on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:02:50.456 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+ORDER BY f."Id"
+2025-07-03 09:02:50.506 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldImages" AS f0 ON f."Id" = f0."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:50.550 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldServices" AS f1 ON f."Id" = f1."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:50.595 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldReviews" AS f2 ON f."Id" = f2."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:50.640 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f."Id"
+FROM "Fields" AS f
+INNER JOIN "SubFields" AS s ON f."Id" = s."FieldId"
+ORDER BY f."Id"
+2025-07-03 09:02:50.647 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.DTOs.FieldDto, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:02:50.650 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI) in 242.5809ms
+2025-07-03 09:02:50.652 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-07-03 09:02:50.657 +07:00 [INF] HTTP GET /api/field responded 200 in 263.6067 ms
+2025-07-03 09:02:50.660 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field - 200 null application/json; charset=utf-8 276.2225ms
+2025-07-03 09:06:54.912 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/field/my-fields - null null
+2025-07-03 09:06:54.912 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - null null
+2025-07-03 09:06:54.969 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:06:54.983 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:06:54.998 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - null null
+2025-07-03 09:06:55.002 +07:00 [INF] HTTP OPTIONS /api/field/my-fields responded 204 in 32.6103 ms
+2025-07-03 09:06:55.017 +07:00 [INF] HTTP OPTIONS /api/auth/me responded 204 in 30.0429 ms
+2025-07-03 09:06:55.020 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - 204 null null 107.9341ms
+2025-07-03 09:06:55.020 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - null null
+2025-07-03 09:06:55.065 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/field/my-fields - 204 null null 153.1393ms
+2025-07-03 09:06:55.071 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:06:55.075 +07:00 [INF] HTTP OPTIONS /api/auth/me responded 204 in 73.8908 ms
+2025-07-03 09:06:55.065 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/field/my-fields - null null
+2025-07-03 09:06:55.085 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:06:55.081 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - 204 null null 83.343ms
+2025-07-03 09:06:55.095 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - null null
+2025-07-03 09:06:55.101 +07:00 [INF] HTTP OPTIONS /api/field/my-fields responded 204 in 16.3141 ms
+2025-07-03 09:06:55.106 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:06:55.106 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/field/my-fields - 204 null null 40.7326ms
+2025-07-03 09:06:55.108 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:06:55.114 +07:00 [INF] HTTP OPTIONS /api/auth/me responded 204 in 49.0150 ms
+2025-07-03 09:06:55.114 +07:00 [INF] HTTP OPTIONS /api/auth/me responded 204 in 13.4519 ms
+2025-07-03 09:06:55.121 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - 204 null null 25.992ms
+2025-07-03 09:06:55.121 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - 204 null null 101.0305ms
+2025-07-03 09:06:55.219 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/field/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:06:55.227 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/field/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:06:55.231 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:06:55.234 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:06:55.236 +07:00 [INF] HTTP OPTIONS /api/field/san_bong_da_mini_chao_lua responded 204 in 4.1617 ms
+2025-07-03 09:06:55.236 +07:00 [INF] HTTP OPTIONS /api/field/san_bong_da_mini_chao_lua responded 204 in 6.8295 ms
+2025-07-03 09:06:55.244 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/field/san_bong_da_mini_chao_lua - 204 null null 25.6292ms
+2025-07-03 09:06:55.244 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/field/san_bong_da_mini_chao_lua - 204 null null 17.2925ms
+2025-07-03 09:06:55.260 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:06:55.264 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:06:55.364 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:06:55.371 +07:00 [INF] Route matched with {action = "GetFieldBySlug", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFieldBySlug(System.String) on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:06:55.506 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+ORDER BY f."Id"
+LIMIT 1
+2025-07-03 09:06:55.570 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f3."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f3
+INNER JOIN "FieldImages" AS f0 ON f3."Id" = f0."FieldId"
+ORDER BY f3."Id"
+2025-07-03 09:06:55.638 +07:00 [INF] Executed DbCommand (60ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f4."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f4
+INNER JOIN "FieldServices" AS f1 ON f4."Id" = f1."FieldId"
+ORDER BY f4."Id"
+2025-07-03 09:06:55.694 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f5."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f5
+INNER JOIN "FieldReviews" AS f2 ON f5."Id" = f2."FieldId"
+ORDER BY f5."Id"
+2025-07-03 09:06:55.738 +07:00 [INF] Executed DbCommand (37ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f6."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f6
+INNER JOIN "SubFields" AS s ON f6."Id" = s."FieldId"
+ORDER BY f6."Id"
+2025-07-03 09:06:55.746 +07:00 [INF] Executing OkObjectResult, writing value of type 'FieldBookingAPI.DTOs.FieldDto'.
+2025-07-03 09:06:55.749 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI) in 374.0084ms
+2025-07-03 09:06:55.752 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:06:55.753 +07:00 [INF] HTTP GET /api/field/san_bong_da_mini_chao_lua responded 200 in 489.5368 ms
+2025-07-03 09:06:55.753 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:06:55.765 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 505.0128ms
+2025-07-03 09:06:55.770 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:06:55.775 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:06:55.778 +07:00 [INF] Route matched with {action = "GetFieldBySlug", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFieldBySlug(System.String) on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:06:55.824 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+ORDER BY f."Id"
+LIMIT 1
+2025-07-03 09:06:55.873 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f3."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f3
+INNER JOIN "FieldImages" AS f0 ON f3."Id" = f0."FieldId"
+ORDER BY f3."Id"
+2025-07-03 09:06:55.918 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f4."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f4
+INNER JOIN "FieldServices" AS f1 ON f4."Id" = f1."FieldId"
+ORDER BY f4."Id"
+2025-07-03 09:06:55.961 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f5."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f5
+INNER JOIN "FieldReviews" AS f2 ON f5."Id" = f2."FieldId"
+ORDER BY f5."Id"
+2025-07-03 09:06:56.004 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f6."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f6
+INNER JOIN "SubFields" AS s ON f6."Id" = s."FieldId"
+ORDER BY f6."Id"
+2025-07-03 09:06:56.010 +07:00 [INF] Executing OkObjectResult, writing value of type 'FieldBookingAPI.DTOs.FieldDto'.
+2025-07-03 09:06:56.013 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI) in 231.2757ms
+2025-07-03 09:06:56.015 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:06:56.017 +07:00 [INF] HTTP GET /api/field/san_bong_da_mini_chao_lua responded 200 in 252.3399 ms
+2025-07-03 09:06:56.021 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 267.771ms
+2025-07-03 09:07:06.510 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-07-03 09:07:07.035 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - null null
+2025-07-03 09:07:07.051 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - null null
+2025-07-03 09:07:07.051 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - null null
+2025-07-03 09:07:07.051 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/field/my-fields - null null
+2025-07-03 09:07:07.071 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.074 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.071 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - null null
+2025-07-03 09:07:07.062 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/field/my-fields - null null
+2025-07-03 09:07:07.086 +07:00 [INF] HTTP OPTIONS /api/auth/me responded 204 in 3.4514 ms
+2025-07-03 09:07:07.090 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.094 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.095 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.094 +07:00 [INF] HTTP OPTIONS /api/auth/me responded 204 in 24.4058 ms
+2025-07-03 09:07:07.100 +07:00 [INF] HTTP OPTIONS /api/auth/me responded 204 in 4.2724 ms
+2025-07-03 09:07:07.100 +07:00 [INF] HTTP OPTIONS /api/field/my-fields responded 204 in 13.3753 ms
+2025-07-03 09:07:07.100 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.100 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - 204 null null 48.9948ms
+2025-07-03 09:07:07.115 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - 204 null null 43.9833ms
+2025-07-03 09:07:07.115 +07:00 [INF] HTTP OPTIONS /api/auth/me responded 204 in 21.6316 ms
+2025-07-03 09:07:07.110 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - 204 null null 58.2113ms
+2025-07-03 09:07:07.115 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/field/my-fields - 204 null null 63.7496ms
+2025-07-03 09:07:07.130 +07:00 [INF] HTTP OPTIONS /api/field/my-fields responded 204 in 28.8439 ms
+2025-07-03 09:07:07.136 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/auth/me - 204 null null 85.2562ms
+2025-07-03 09:07:07.147 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/field/my-fields - 204 null null 85.0433ms
+2025-07-03 09:07:07.155 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/auth/me - null null
+2025-07-03 09:07:07.165 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.167 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-07-03 09:07:07.183 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.186 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI)'
+2025-07-03 09:07:07.193 +07:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller FieldBookingAPI.Controllers.AuthController (FieldBookingAPI).
+2025-07-03 09:07:07.198 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetMyFields (FieldBookingAPI)'
+2025-07-03 09:07:07.202 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-03 09:07:07.206 +07:00 [INF] Route matched with {action = "GetMyFields", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyFields() on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:07:07.214 +07:00 [INF] Executed action FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI) in 15.9463ms
+2025-07-03 09:07:07.214 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/auth/me - null null
+2025-07-03 09:07:07.221 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI)'
+2025-07-03 09:07:07.224 +07:00 [INF] HTTP GET /api/auth/me responded 200 in 58.5694 ms
+2025-07-03 09:07:07.228 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.230 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/auth/me - 200 null application/json; charset=utf-8 72.9467ms
+2025-07-03 09:07:07.236 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI)'
+2025-07-03 09:07:07.238 +07:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller FieldBookingAPI.Controllers.AuthController (FieldBookingAPI).
+2025-07-03 09:07:07.244 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-03 09:07:07.247 +07:00 [INF] Executed action FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI) in 4.6513ms
+2025-07-03 09:07:07.250 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI)'
+2025-07-03 09:07:07.252 +07:00 [INF] HTTP GET /api/auth/me responded 200 in 28.0510 ms
+2025-07-03 09:07:07.257 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/auth/me - null null
+2025-07-03 09:07:07.266 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/auth/me - 200 null application/json; charset=utf-8 43.7721ms
+2025-07-03 09:07:07.272 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.276 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI)'
+2025-07-03 09:07:07.278 +07:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller FieldBookingAPI.Controllers.AuthController (FieldBookingAPI).
+2025-07-03 09:07:07.284 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-03 09:07:07.287 +07:00 [INF] Executed action FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI) in 5.7098ms
+2025-07-03 09:07:07.293 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI)'
+2025-07-03 09:07:07.293 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/auth/me - null null
+2025-07-03 09:07:07.297 +07:00 [INF] HTTP GET /api/auth/me responded 200 in 24.5779 ms
+2025-07-03 09:07:07.304 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/auth/me - 200 null application/json; charset=utf-8 46.3046ms
+2025-07-03 09:07:07.310 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.313 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI)'
+2025-07-03 09:07:07.315 +07:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller FieldBookingAPI.Controllers.AuthController (FieldBookingAPI).
+2025-07-03 09:07:07.318 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-03 09:07:07.321 +07:00 [INF] Executed action FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI) in 3.3084ms
+2025-07-03 09:07:07.324 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.AuthController.Me (FieldBookingAPI)'
+2025-07-03 09:07:07.328 +07:00 [INF] HTTP GET /api/auth/me responded 200 in 24.1095 ms
+2025-07-03 09:07:07.331 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/auth/me - 200 null application/json; charset=utf-8 38.1134ms
+2025-07-03 09:07:07.389 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."OwnerId" = @__userId_0
+ORDER BY f."Id"
+2025-07-03 09:07:07.449 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldImages" AS f0 ON f."Id" = f0."FieldId"
+WHERE f."OwnerId" = @__userId_0
+ORDER BY f."Id"
+2025-07-03 09:07:07.501 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldServices" AS f1 ON f."Id" = f1."FieldId"
+WHERE f."OwnerId" = @__userId_0
+ORDER BY f."Id"
+2025-07-03 09:07:07.554 +07:00 [INF] Executed DbCommand (45ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldReviews" AS f2 ON f."Id" = f2."FieldId"
+WHERE f."OwnerId" = @__userId_0
+ORDER BY f."Id"
+2025-07-03 09:07:07.584 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/field/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:07.589 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.589 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/field/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:07.596 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.598 +07:00 [INF] HTTP OPTIONS /api/field/san_bong_da_mini_chao_lua responded 204 in 7.4940 ms
+2025-07-03 09:07:07.598 +07:00 [INF] HTTP OPTIONS /api/field/san_bong_da_mini_chao_lua responded 204 in 2.0105 ms
+2025-07-03 09:07:07.605 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/field/san_bong_da_mini_chao_lua - 204 null null 16.243ms
+2025-07-03 09:07:07.605 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/field/san_bong_da_mini_chao_lua - 204 null null 21.3328ms
+2025-07-03 09:07:07.616 +07:00 [INF] Executed DbCommand (45ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f."Id"
+FROM "Fields" AS f
+INNER JOIN "SubFields" AS s ON f."Id" = s."FieldId"
+WHERE f."OwnerId" = @__userId_0
+ORDER BY f."Id"
+2025-07-03 09:07:07.620 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:07.625 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.627 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:07:07.629 +07:00 [INF] Route matched with {action = "GetFieldBySlug", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFieldBySlug(System.String) on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:07:07.634 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.DTOs.FieldDto, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:07:07.637 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetMyFields (FieldBookingAPI) in 423.1882ms
+2025-07-03 09:07:07.639 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetMyFields (FieldBookingAPI)'
+2025-07-03 09:07:07.644 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-07-03 09:07:07.644 +07:00 [INF] HTTP GET /api/field/my-fields responded 200 in 461.0994 ms
+2025-07-03 09:07:07.650 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.652 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 200 null application/json; charset=utf-8 484.625ms
+2025-07-03 09:07:07.658 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetMyFields (FieldBookingAPI)'
+2025-07-03 09:07:07.660 +07:00 [INF] Route matched with {action = "GetMyFields", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyFields() on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:07:07.679 +07:00 [INF] Executed DbCommand (45ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+ORDER BY f."Id"
+LIMIT 1
+2025-07-03 09:07:07.733 +07:00 [INF] Executed DbCommand (49ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f3."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f3
+INNER JOIN "FieldImages" AS f0 ON f3."Id" = f0."FieldId"
+ORDER BY f3."Id"
+2025-07-03 09:07:07.787 +07:00 [INF] Executed DbCommand (49ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f4."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f4
+INNER JOIN "FieldServices" AS f1 ON f4."Id" = f1."FieldId"
+ORDER BY f4."Id"
+2025-07-03 09:07:07.843 +07:00 [INF] Executed DbCommand (45ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f5."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f5
+INNER JOIN "FieldReviews" AS f2 ON f5."Id" = f2."FieldId"
+ORDER BY f5."Id"
+2025-07-03 09:07:07.893 +07:00 [INF] Executed DbCommand (45ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f6."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f6
+INNER JOIN "SubFields" AS s ON f6."Id" = s."FieldId"
+ORDER BY f6."Id"
+2025-07-03 09:07:07.898 +07:00 [INF] Executed DbCommand (31ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."OwnerId" = @__userId_0
+ORDER BY f."Id"
+2025-07-03 09:07:07.902 +07:00 [INF] Executing OkObjectResult, writing value of type 'FieldBookingAPI.DTOs.FieldDto'.
+2025-07-03 09:07:07.905 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI) in 272.6646ms
+2025-07-03 09:07:07.907 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:07.912 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:07:07.914 +07:00 [INF] HTTP GET /api/field/san_bong_da_mini_chao_lua responded 200 in 289.5791 ms
+2025-07-03 09:07:07.917 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:07.919 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 298.5743ms
+2025-07-03 09:07:07.925 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:07:07.927 +07:00 [INF] Route matched with {action = "GetFieldBySlug", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFieldBySlug(System.String) on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:07:07.934 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldImages" AS f0 ON f."Id" = f0."FieldId"
+WHERE f."OwnerId" = @__userId_0
+ORDER BY f."Id"
+2025-07-03 09:07:07.970 +07:00 [INF] Executed DbCommand (31ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldServices" AS f1 ON f."Id" = f1."FieldId"
+WHERE f."OwnerId" = @__userId_0
+ORDER BY f."Id"
+2025-07-03 09:07:07.979 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+ORDER BY f."Id"
+LIMIT 1
+2025-07-03 09:07:08.008 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldReviews" AS f2 ON f."Id" = f2."FieldId"
+WHERE f."OwnerId" = @__userId_0
+ORDER BY f."Id"
+2025-07-03 09:07:08.029 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:08.033 +07:00 [INF] Executed DbCommand (45ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f3."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f3
+INNER JOIN "FieldImages" AS f0 ON f3."Id" = f0."FieldId"
+ORDER BY f3."Id"
+2025-07-03 09:07:08.038 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:08.040 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:08.040 +07:00 [INF] HTTP OPTIONS /api/booking/owner-bookings/san_bong_da_mini_chao_lua responded 204 in 6.1762 ms
+2025-07-03 09:07:08.044 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - null null
+2025-07-03 09:07:08.044 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - null null
+2025-07-03 09:07:08.057 +07:00 [INF] Executed DbCommand (33ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f."Id"
+FROM "Fields" AS f
+INNER JOIN "SubFields" AS s ON f."Id" = s."FieldId"
+WHERE f."OwnerId" = @__userId_0
+ORDER BY f."Id"
+2025-07-03 09:07:08.061 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:08.061 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:08.061 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:08.066 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - 204 null null 32.3ms
+2025-07-03 09:07:08.066 +07:00 [INF] HTTP OPTIONS /api/booking/booked-slots responded 204 in 4.4961 ms
+2025-07-03 09:07:08.071 +07:00 [INF] HTTP OPTIONS /api/booking/booked-slots responded 204 in 14.5245 ms
+2025-07-03 09:07:08.071 +07:00 [INF] HTTP OPTIONS /api/booking/owner-bookings/san_bong_da_mini_chao_lua responded 204 in 26.9733 ms
+2025-07-03 09:07:08.083 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:08.087 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - 204 null null 43.0094ms
+2025-07-03 09:07:08.087 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - 204 null null 43.0214ms
+2025-07-03 09:07:08.098 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - 204 null null 48.2588ms
+2025-07-03 09:07:08.104 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - null null
+2025-07-03 09:07:08.109 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:08.111 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:08.111 +07:00 [INF] Executed DbCommand (53ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f4."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f4
+INNER JOIN "FieldServices" AS f1 ON f4."Id" = f1."FieldId"
+ORDER BY f4."Id"
+2025-07-03 09:07:08.117 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:07:08.119 +07:00 [INF] Route matched with {action = "GetBookedSlots", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookedSlots(System.String, System.DateTime) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:07:08.119 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI)'
+2025-07-03 09:07:08.125 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.DTOs.FieldDto, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:07:08.128 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetMyFields (FieldBookingAPI) in 465.6176ms
+2025-07-03 09:07:08.131 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetMyFields (FieldBookingAPI)'
+2025-07-03 09:07:08.133 +07:00 [INF] HTTP GET /api/field/my-fields responded 200 in 482.7796 ms
+2025-07-03 09:07:08.137 +07:00 [INF] Route matched with {action = "GetBookingForOnwer", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookingForOnwer(System.String) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:07:08.141 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 200 null application/json; charset=utf-8 497.0783ms
+2025-07-03 09:07:08.161 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f5."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f5
+INNER JOIN "FieldReviews" AS f2 ON f5."Id" = f2."FieldId"
+ORDER BY f5."Id"
+2025-07-03 09:07:08.178 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+LIMIT 1
+2025-07-03 09:07:08.214 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f6."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f6
+INNER JOIN "SubFields" AS s ON f6."Id" = s."FieldId"
+ORDER BY f6."Id"
+2025-07-03 09:07:08.219 +07:00 [INF] Executing OkObjectResult, writing value of type 'FieldBookingAPI.DTOs.FieldDto'.
+2025-07-03 09:07:08.222 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__field_Id_0='?' (DbType = Int32), @__safeDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."SubField", b0."Time", b1."Status", b1."UserName", b1."Phone", b1."Id", b1."BookingCode"
+FROM "Bookings" AS b
+INNER JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+INNER JOIN "Bookings" AS b1 ON b0."BookingId" = b1."Id"
+WHERE b."FieldId" = @__field_Id_0 AND b."Date" = @__safeDate_1 AND b."Status" <> 'canceled'
+2025-07-03 09:07:08.228 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI) in 297.6801ms
+2025-07-03 09:07:08.231 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:07:08.233 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:08.233 +07:00 [INF] HTTP GET /api/field/san_bong_da_mini_chao_lua responded 200 in 320.7167 ms
+2025-07-03 09:07:08.241 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`7[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:07:08.245 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 334.2248ms
+2025-07-03 09:07:08.251 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:08.253 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI) in 129.4102ms
+2025-07-03 09:07:08.256 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:07:08.256 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - null null
+2025-07-03 09:07:08.263 +07:00 [INF] HTTP GET /api/booking/booked-slots responded 200 in 146.9478 ms
+2025-07-03 09:07:08.266 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:07:08.267 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:08.269 +07:00 [INF] Route matched with {action = "GetFieldBySlug", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFieldBySlug(System.String) on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:07:08.272 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - 200 null application/json; charset=utf-8 165.0109ms
+2025-07-03 09:07:08.279 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:07:08.281 +07:00 [INF] Route matched with {action = "GetBookedSlots", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookedSlots(System.String, System.DateTime) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:07:08.321 +07:00 [INF] Executed DbCommand (35ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+LIMIT 1
+2025-07-03 09:07:08.332 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+ORDER BY f."Id"
+LIMIT 1
+2025-07-03 09:07:08.360 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__field_Id_0='?' (DbType = Int32), @__safeDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."SubField", b0."Time", b1."Status", b1."UserName", b1."Phone", b1."Id", b1."BookingCode"
+FROM "Bookings" AS b
+INNER JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+INNER JOIN "Bookings" AS b1 ON b0."BookingId" = b1."Id"
+WHERE b."FieldId" = @__field_Id_0 AND b."Date" = @__safeDate_1 AND b."Status" <> 'canceled'
+2025-07-03 09:07:08.365 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`7[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:07:08.368 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI) in 83.4822ms
+2025-07-03 09:07:08.371 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:07:08.372 +07:00 [INF] HTTP GET /api/booking/booked-slots responded 200 in 109.6227 ms
+2025-07-03 09:07:08.378 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - 200 null application/json; charset=utf-8 121.8581ms
+2025-07-03 09:07:08.384 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f3."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f3
+INNER JOIN "FieldImages" AS f0 ON f3."Id" = f0."FieldId"
+ORDER BY f3."Id"
+2025-07-03 09:07:08.435 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f4."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f4
+INNER JOIN "FieldServices" AS f1 ON f4."Id" = f1."FieldId"
+ORDER BY f4."Id"
+2025-07-03 09:07:08.486 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f5."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f5
+INNER JOIN "FieldReviews" AS f2 ON f5."Id" = f2."FieldId"
+ORDER BY f5."Id"
+2025-07-03 09:07:08.508 +07:00 [INF] Executed DbCommand (52ms) [Parameters=[@__slug_0='?', @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0 AND f."OwnerId" = @__userId_1
+LIMIT 1
+2025-07-03 09:07:08.535 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f6."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f6
+INNER JOIN "SubFields" AS s ON f6."Id" = s."FieldId"
+ORDER BY f6."Id"
+2025-07-03 09:07:08.540 +07:00 [INF] Executing OkObjectResult, writing value of type 'FieldBookingAPI.DTOs.FieldDto'.
+2025-07-03 09:07:08.543 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI) in 270.8765ms
+2025-07-03 09:07:08.546 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:07:08.548 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:08.548 +07:00 [INF] HTTP GET /api/field/san_bong_da_mini_chao_lua responded 200 in 306.6522 ms
+2025-07-03 09:07:08.556 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 325.033ms
+2025-07-03 09:07:08.562 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:08.564 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:07:08.566 +07:00 [INF] Route matched with {action = "GetFieldBySlug", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetFieldBySlug(System.String) on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-07-03 09:07:08.600 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__field_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId", b0."Id", b0."BookingId", b0."SubField", b0."Time"
+FROM "Bookings" AS b
+LEFT JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+WHERE b."FieldId" = @__field_Id_0
+ORDER BY b."Date" DESC, b."Id"
+2025-07-03 09:07:08.625 +07:00 [INF] Executed DbCommand (54ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+ORDER BY f."Id"
+LIMIT 1
+2025-07-03 09:07:08.678 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f3."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f3
+INNER JOIN "FieldImages" AS f0 ON f3."Id" = f0."FieldId"
+ORDER BY f3."Id"
+2025-07-03 09:07:08.703 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.Models.Booking, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:07:08.728 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f1."Price", f4."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f4
+INNER JOIN "FieldServices" AS f1 ON f4."Id" = f1."FieldId"
+ORDER BY f4."Id"
+2025-07-03 09:07:08.746 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI) in 605.5574ms
+2025-07-03 09:07:08.749 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI)'
+2025-07-03 09:07:08.751 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:08.751 +07:00 [INF] HTTP GET /api/booking/owner-bookings/san_bong_da_mini_chao_lua responded 200 in 653.0692 ms
+2025-07-03 09:07:08.759 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:08.759 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 676.4901ms
+2025-07-03 09:07:08.770 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI)'
+2025-07-03 09:07:08.772 +07:00 [INF] Route matched with {action = "GetBookingForOnwer", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookingForOnwer(System.String) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:07:08.780 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f5."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f5
+INNER JOIN "FieldReviews" AS f2 ON f5."Id" = f2."FieldId"
+ORDER BY f5."Id"
+2025-07-03 09:07:08.833 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", s."Status", f6."Id"
+FROM (
+    SELECT f."Id"
+    FROM "Fields" AS f
+    WHERE f."Slug" = @__slug_0
+    LIMIT 1
+) AS f6
+INNER JOIN "SubFields" AS s ON f6."Id" = s."FieldId"
+ORDER BY f6."Id"
+2025-07-03 09:07:08.833 +07:00 [INF] Executed DbCommand (49ms) [Parameters=[@__slug_0='?', @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0 AND f."OwnerId" = @__userId_1
+LIMIT 1
+2025-07-03 09:07:08.842 +07:00 [INF] Executing OkObjectResult, writing value of type 'FieldBookingAPI.DTOs.FieldDto'.
+2025-07-03 09:07:08.845 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI) in 275.996ms
+2025-07-03 09:07:08.848 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetFieldBySlug (FieldBookingAPI)'
+2025-07-03 09:07:08.850 +07:00 [INF] HTTP GET /api/field/san_bong_da_mini_chao_lua responded 200 in 294.1718 ms
+2025-07-03 09:07:08.853 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 304.5899ms
+2025-07-03 09:07:08.877 +07:00 [INF] Executed DbCommand (34ms) [Parameters=[@__field_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId", b0."Id", b0."BookingId", b0."SubField", b0."Time"
+FROM "Bookings" AS b
+LEFT JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+WHERE b."FieldId" = @__field_Id_0
+ORDER BY b."Date" DESC, b."Id"
+2025-07-03 09:07:08.882 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.Models.Booking, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:07:08.884 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI) in 105.8165ms
+2025-07-03 09:07:08.887 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI)'
+2025-07-03 09:07:08.889 +07:00 [INF] HTTP GET /api/booking/owner-bookings/san_bong_da_mini_chao_lua responded 200 in 130.3125 ms
+2025-07-03 09:07:08.894 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 142.9285ms
+2025-07-03 09:07:23.314 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:23.320 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:23.322 +07:00 [INF] HTTP OPTIONS /api/booking/owner-bookings/san_bong_da_mini_chao_lua responded 204 in 2.0056 ms
+2025-07-03 09:07:23.327 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - 204 null null 13.1024ms
+2025-07-03 09:07:23.334 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:23.339 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:23.342 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI)'
+2025-07-03 09:07:23.345 +07:00 [INF] Route matched with {action = "GetBookingForOnwer", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookingForOnwer(System.String) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:07:23.397 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[@__slug_0='?', @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0 AND f."OwnerId" = @__userId_1
+LIMIT 1
+2025-07-03 09:07:23.451 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@__field_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId", b0."Id", b0."BookingId", b0."SubField", b0."Time"
+FROM "Bookings" AS b
+LEFT JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+WHERE b."FieldId" = @__field_Id_0
+ORDER BY b."Date" DESC, b."Id"
+2025-07-03 09:07:23.456 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.Models.Booking, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:07:23.459 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI) in 110.383ms
+2025-07-03 09:07:23.462 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI)'
+2025-07-03 09:07:23.464 +07:00 [INF] HTTP GET /api/booking/owner-bookings/san_bong_da_mini_chao_lua responded 200 in 125.5877 ms
+2025-07-03 09:07:23.468 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 133.8135ms
+2025-07-03 09:07:38.296 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:38.299 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - null null
+2025-07-03 09:07:38.303 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:38.304 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:38.305 +07:00 [INF] HTTP OPTIONS /api/booking/owner-bookings/san_bong_da_mini_chao_lua responded 204 in 4.6862 ms
+2025-07-03 09:07:38.305 +07:00 [INF] HTTP OPTIONS /api/booking/booked-slots responded 204 in 2.3826 ms
+2025-07-03 09:07:38.309 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - 204 null null 10.2407ms
+2025-07-03 09:07:38.309 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - 204 null null 13.702ms
+2025-07-03 09:07:38.318 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:38.318 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - null null
+2025-07-03 09:07:38.326 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:38.328 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:38.330 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI)'
+2025-07-03 09:07:38.331 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:07:38.333 +07:00 [INF] Route matched with {action = "GetBookingForOnwer", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookingForOnwer(System.String) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:07:38.335 +07:00 [INF] Route matched with {action = "GetBookedSlots", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookedSlots(System.String, System.DateTime) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:07:38.371 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__slug_0='?', @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0 AND f."OwnerId" = @__userId_1
+LIMIT 1
+2025-07-03 09:07:38.386 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+LIMIT 1
+2025-07-03 09:07:38.422 +07:00 [INF] Executed DbCommand (31ms) [Parameters=[@__field_Id_0='?' (DbType = Int32), @__safeDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."SubField", b0."Time", b1."Status", b1."UserName", b1."Phone", b1."Id", b1."BookingCode"
+FROM "Bookings" AS b
+INNER JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+INNER JOIN "Bookings" AS b1 ON b0."BookingId" = b1."Id"
+WHERE b."FieldId" = @__field_Id_0 AND b."Date" = @__safeDate_1 AND b."Status" <> 'canceled'
+2025-07-03 09:07:38.427 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`7[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:07:38.431 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[@__field_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId", b0."Id", b0."BookingId", b0."SubField", b0."Time"
+FROM "Bookings" AS b
+LEFT JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+WHERE b."FieldId" = @__field_Id_0
+ORDER BY b."Date" DESC, b."Id"
+2025-07-03 09:07:38.433 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI) in 96.0445ms
+2025-07-03 09:07:38.435 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-07-03 09:07:38.437 +07:00 [INF] HTTP GET /api/booking/booked-slots responded 200 in 109.2950 ms
+2025-07-03 09:07:38.452 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-07-03 - 200 null application/json; charset=utf-8 133.1514ms
+2025-07-03 09:07:38.467 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.Models.Booking, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:07:38.470 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI) in 134.7101ms
+2025-07-03 09:07:38.472 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI)'
+2025-07-03 09:07:38.473 +07:00 [INF] HTTP GET /api/booking/owner-bookings/san_bong_da_mini_chao_lua responded 200 in 147.7218 ms
+2025-07-03 09:07:38.480 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 161.5792ms
+2025-07-03 09:07:53.296 +07:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:53.300 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:53.301 +07:00 [INF] HTTP OPTIONS /api/booking/owner-bookings/san_bong_da_mini_chao_lua responded 204 in 1.0289 ms
+2025-07-03 09:07:53.304 +07:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - 204 null null 8.2685ms
+2025-07-03 09:07:53.308 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - null null
+2025-07-03 09:07:53.312 +07:00 [INF] CORS policy execution successful.
+2025-07-03 09:07:53.315 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI)'
+2025-07-03 09:07:53.316 +07:00 [INF] Route matched with {action = "GetBookingForOnwer", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookingForOnwer(System.String) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-07-03 09:07:53.366 +07:00 [INF] Executed DbCommand (46ms) [Parameters=[@__slug_0='?', @__userId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."FaceBook", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0 AND f."OwnerId" = @__userId_1
+LIMIT 1
+2025-07-03 09:07:53.403 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__field_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId", b0."Id", b0."BookingId", b0."SubField", b0."Time"
+FROM "Bookings" AS b
+LEFT JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+WHERE b."FieldId" = @__field_Id_0
+ORDER BY b."Date" DESC, b."Id"
+2025-07-03 09:07:53.406 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.Models.Booking, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-03 09:07:53.408 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI) in 89.3486ms
+2025-07-03 09:07:53.411 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookingForOnwer (FieldBookingAPI)'
+2025-07-03 09:07:53.413 +07:00 [INF] HTTP GET /api/booking/owner-bookings/san_bong_da_mini_chao_lua responded 200 in 101.1018 ms
+2025-07-03 09:07:53.415 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/owner-bookings/san_bong_da_mini_chao_lua - 200 null application/json; charset=utf-8 107.4305ms
+2025-07-03 09:08:04.663 +07:00 [INF] Application is shutting down...

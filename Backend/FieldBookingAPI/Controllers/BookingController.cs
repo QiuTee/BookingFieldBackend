@@ -18,7 +18,6 @@ namespace FieldBookingAPI.Controllers
         {
             _context = context;
         }
-
         [HttpPost]
         public async Task<IActionResult> CreateBooking([FromBody] BookingDto dto)
         {
@@ -35,6 +34,7 @@ namespace FieldBookingAPI.Controllers
             var booking = new Booking
             {
                 FieldName = dto.FieldName,
+                BookingCode  = dto.BookingCode ,
                 Date = safeDate,
                 UserName = dto.UserName,
                 Phone = dto.Phone,
@@ -156,9 +156,9 @@ namespace FieldBookingAPI.Controllers
             if (field == null)
                 return NotFound(new { message = "Sân không tồn tại" });
             var slots = await _context.Bookings
-                .Where(b => b.FieldId == field.Id && b.Date == safeDate && (b.Status == "confirmed_paid" || b.Status == "paid" || b.Status == "confirmed_deposit"))
+                .Where(b => b.FieldId == field.Id && b.Date == safeDate && (b.Status != "canceled"))
                 .SelectMany(b => b.Slots)
-                .Select(s => new { s.SubField, s.Time, s.Booking.Status, s.Booking.UserName, s.Booking.Phone, s.Booking.Id })
+                .Select(s => new { s.SubField, s.Time, s.Booking.Status, s.Booking.UserName, s.Booking.Phone, s.Booking.Id , s.Booking.BookingCode})
                 .ToListAsync();
 
             return Ok(slots);

@@ -1,0 +1,343 @@
+2025-06-25 15:39:08.200 +07:00 [INF] Starting web application host
+2025-06-25 15:39:08.606 +07:00 [WRN] The WebRootPath was not found: C:\Users\Asus VN\Documents\bo\Sports Field Booking Platform\Backend\FieldBookingAPI\wwwroot. Static files may be unavailable.
+2025-06-25 15:39:09.754 +07:00 [INF] Now listening on: http://localhost:5109
+2025-06-25 15:39:09.756 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 15:39:09.757 +07:00 [INF] Hosting environment: Development
+2025-06-25 15:39:09.757 +07:00 [INF] Content root path: C:\Users\Asus VN\Documents\bo\Sports Field Booking Platform\Backend\FieldBookingAPI
+2025-06-25 15:39:10.428 +07:00 [INF] Executed DbCommand (60ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 15:44:10.508 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 15:44:33.904 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-06-25 15:44:33.953 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:44:33.994 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-06-25 15:44:33.998 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-25 15:44:34.001 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 70.4632 ms
+2025-06-25 15:44:34.015 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 113.1462ms
+2025-06-25 15:44:34.021 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-06-25 15:44:34.026 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:44:34.036 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-06-25 15:44:34.037 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-25 15:44:34.038 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 13.8927 ms
+2025-06-25 15:44:34.041 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 19.6394ms
+2025-06-25 15:44:38.190 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-06-25 15:44:38.192 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field - null null
+2025-06-25 15:44:38.195 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:44:38.195 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:44:38.199 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-06-25 15:44:38.199 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-06-25 15:44:38.201 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-25 15:44:38.201 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 7.3654 ms
+2025-06-25 15:44:38.203 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 13.4533ms
+2025-06-25 15:44:38.206 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-06-25 15:44:38.208 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:44:38.209 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-06-25 15:44:38.210 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-25 15:44:38.211 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 3.1104 ms
+2025-06-25 15:44:38.213 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 7.2908ms
+2025-06-25 15:44:38.219 +07:00 [INF] Route matched with {action = "GetAllFields", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllFields() on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-06-25 15:44:38.620 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+ORDER BY f."Id"
+2025-06-25 15:44:38.728 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldImages" AS f0 ON f."Id" = f0."FieldId"
+ORDER BY f."Id"
+2025-06-25 15:44:38.768 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldServices" AS f1 ON f."Id" = f1."FieldId"
+ORDER BY f."Id"
+2025-06-25 15:44:38.800 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldReviews" AS f2 ON f."Id" = f2."FieldId"
+ORDER BY f."Id"
+2025-06-25 15:44:38.829 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", f."Id"
+FROM "Fields" AS f
+INNER JOIN "SubFields" AS s ON f."Id" = s."FieldId"
+ORDER BY f."Id"
+2025-06-25 15:44:38.847 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.DTOs.FieldDto, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-25 15:44:38.867 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field - null null
+2025-06-25 15:44:38.869 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI) in 644.4697ms
+2025-06-25 15:44:38.870 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:44:38.871 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-06-25 15:44:38.872 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-06-25 15:44:38.873 +07:00 [INF] HTTP GET /api/field responded 200 in 678.0907 ms
+2025-06-25 15:44:38.874 +07:00 [INF] Route matched with {action = "GetAllFields", controller = "Field"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllFields() on controller FieldBookingAPI.Controllers.FieldController (FieldBookingAPI).
+2025-06-25 15:44:38.878 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field - 200 null application/json; charset=utf-8 685.5869ms
+2025-06-25 15:44:38.902 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+ORDER BY f."Id"
+2025-06-25 15:44:38.929 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f0."Id", f0."FieldId", f0."Url", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldImages" AS f0 ON f."Id" = f0."FieldId"
+ORDER BY f."Id"
+2025-06-25 15:44:38.956 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f1."Id", f1."FieldId", f1."Name", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldServices" AS f1 ON f."Id" = f1."FieldId"
+ORDER BY f."Id"
+2025-06-25 15:44:38.984 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT f2."Id", f2."Comment", f2."FieldId", f2."Rating", f."Id"
+FROM "Fields" AS f
+INNER JOIN "FieldReviews" AS f2 ON f."Id" = f2."FieldId"
+ORDER BY f."Id"
+2025-06-25 15:44:39.011 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."FieldId", s."Name", f."Id"
+FROM "Fields" AS f
+INNER JOIN "SubFields" AS s ON f."Id" = s."FieldId"
+ORDER BY f."Id"
+2025-06-25 15:44:39.014 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[FieldBookingAPI.DTOs.FieldDto, FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-25 15:44:39.016 +07:00 [INF] Executed action FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI) in 140.461ms
+2025-06-25 15:44:39.017 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.FieldController.GetAllFields (FieldBookingAPI)'
+2025-06-25 15:44:39.018 +07:00 [INF] HTTP GET /api/field responded 200 in 147.5306 ms
+2025-06-25 15:44:39.020 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field - 200 null application/json; charset=utf-8 152.3154ms
+2025-06-25 15:44:41.417 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-06-25 - null null
+2025-06-25 15:44:41.419 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:44:41.420 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-06-25 15:44:41.429 +07:00 [INF] Route matched with {action = "GetBookedSlots", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookedSlots(System.String, System.DateTime) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-06-25 15:44:41.486 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+LIMIT 1
+2025-06-25 15:44:41.536 +07:00 [INF] Executed DbCommand (35ms) [Parameters=[@__field_Id_0='?' (DbType = Int32), @__safeDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."SubField", b0."Time", b1."Status", b1."UserName", b1."Phone", b1."Id", b1."BookingCode"
+FROM "Bookings" AS b
+INNER JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+INNER JOIN "Bookings" AS b1 ON b0."BookingId" = b1."Id"
+WHERE b."FieldId" = @__field_Id_0 AND b."Date" = @__safeDate_1 AND b."Status" <> 'canceled'
+2025-06-25 15:44:41.538 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`7[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-25 15:44:41.543 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI) in 113.2834ms
+2025-06-25 15:44:41.544 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-06-25 15:44:41.545 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-06-25 - null null
+2025-06-25 15:44:41.545 +07:00 [INF] HTTP GET /api/booking/booked-slots responded 200 in 126.5474 ms
+2025-06-25 15:44:41.549 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-06-25 - 200 null application/json; charset=utf-8 131.79ms
+2025-06-25 15:44:41.551 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:44:41.552 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-06-25 15:44:41.552 +07:00 [INF] Route matched with {action = "GetBookedSlots", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookedSlots(System.String, System.DateTime) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-06-25 15:44:41.581 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+LIMIT 1
+2025-06-25 15:44:41.609 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__field_Id_0='?' (DbType = Int32), @__safeDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."SubField", b0."Time", b1."Status", b1."UserName", b1."Phone", b1."Id", b1."BookingCode"
+FROM "Bookings" AS b
+INNER JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+INNER JOIN "Bookings" AS b1 ON b0."BookingId" = b1."Id"
+WHERE b."FieldId" = @__field_Id_0 AND b."Date" = @__safeDate_1 AND b."Status" <> 'canceled'
+2025-06-25 15:44:41.611 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`7[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-25 15:44:41.612 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI) in 58.2799ms
+2025-06-25 15:44:41.613 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-06-25 15:44:41.614 +07:00 [INF] HTTP GET /api/booking/booked-slots responded 200 in 65.3001 ms
+2025-06-25 15:44:41.615 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-06-25 - 200 null application/json; charset=utf-8 70.146ms
+2025-06-25 15:44:47.433 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-06-25 - null null
+2025-06-25 15:44:47.435 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:44:47.436 +07:00 [INF] Executing endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-06-25 15:44:47.437 +07:00 [INF] Route matched with {action = "GetBookedSlots", controller = "Booking"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetBookedSlots(System.String, System.DateTime) on controller FieldBookingAPI.Controllers.BookingController (FieldBookingAPI).
+2025-06-25 15:44:47.468 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__slug_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT f."Id", f."Closetime", f."CreatedByAdminId", f."HeroImage", f."Is24h", f."Location", f."Logo", f."Name", f."Opentime", f."OwnerId", f."Phone", f."Price", f."Slug", f."Status", f."Type"
+FROM "Fields" AS f
+WHERE f."Slug" = @__slug_0
+LIMIT 1
+2025-06-25 15:44:47.501 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__field_Id_0='?' (DbType = Int32), @__safeDate_1='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b0."SubField", b0."Time", b1."Status", b1."UserName", b1."Phone", b1."Id", b1."BookingCode"
+FROM "Bookings" AS b
+INNER JOIN "BookingSlots" AS b0 ON b."Id" = b0."BookingId"
+INNER JOIN "Bookings" AS b1 ON b0."BookingId" = b1."Id"
+WHERE b."FieldId" = @__field_Id_0 AND b."Date" = @__safeDate_1 AND b."Status" <> 'canceled'
+2025-06-25 15:44:47.503 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[<>f__AnonymousType5`7[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], FieldBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-06-25 15:44:47.505 +07:00 [INF] Executed action FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI) in 66.2796ms
+2025-06-25 15:44:47.505 +07:00 [INF] Executed endpoint 'FieldBookingAPI.Controllers.BookingController.GetBookedSlots (FieldBookingAPI)'
+2025-06-25 15:44:47.506 +07:00 [INF] HTTP GET /api/booking/booked-slots responded 200 in 71.2457 ms
+2025-06-25 15:44:47.507 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/booking/booked-slots?slug=san_bong_da_mini_chao_lua&date=2025-06-25 - 200 null application/json; charset=utf-8 74.6834ms
+2025-06-25 15:47:03.987 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-06-25 15:47:03.989 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:47:03.990 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-06-25 15:47:03.991 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-25 15:47:03.991 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 2.6629 ms
+2025-06-25 15:47:03.993 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 6.164ms
+2025-06-25 15:47:03.995 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-06-25 15:47:03.997 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:47:03.997 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-06-25 15:47:03.998 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-25 15:47:03.998 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 1.8622 ms
+2025-06-25 15:47:04.000 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 4.9039ms
+2025-06-25 15:47:05.332 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-06-25 15:47:05.334 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:47:05.334 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-06-25 15:47:05.335 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-25 15:47:05.336 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 2.0625 ms
+2025-06-25 15:47:05.337 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 5.5015ms
+2025-06-25 15:47:05.339 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5109/api/field/my-fields - null null
+2025-06-25 15:47:05.341 +07:00 [INF] CORS policy execution successful.
+2025-06-25 15:47:05.342 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (owner|admin)
+2025-06-25 15:47:05.342 +07:00 [INF] AuthenticationScheme: Bearer was challenged.
+2025-06-25 15:47:05.343 +07:00 [INF] HTTP GET /api/field/my-fields responded 401 in 2.0043 ms
+2025-06-25 15:47:05.344 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5109/api/field/my-fields - 401 0 null 4.5045ms
+2025-06-25 15:49:10.550 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 15:54:10.901 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 15:59:10.938 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:04:11.252 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:09:11.336 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:14:11.687 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:19:11.734 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:24:12.056 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:29:12.163 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:34:12.533 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:39:12.566 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:44:12.874 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:49:12.924 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:54:13.219 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 16:59:13.261 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 17:04:13.613 +07:00 [INF] Executed DbCommand (33ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 17:05:13.209 +07:00 [INF] Application is shutting down...
+2025-06-25 21:42:36.466 +07:00 [INF] Starting web application host
+2025-06-25 21:42:37.940 +07:00 [INF] Now listening on: http://localhost:5109
+2025-06-25 21:42:37.943 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-25 21:42:37.944 +07:00 [INF] Hosting environment: Development
+2025-06-25 21:42:37.945 +07:00 [INF] Content root path: C:\Users\Asus VN\Documents\bo\Sports Field Booking Platform\Backend\FieldBookingAPI
+2025-06-25 21:42:38.333 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 21:47:38.419 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 21:52:38.724 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 21:57:38.760 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:02:39.002 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:07:39.032 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:12:39.597 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:17:39.642 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:22:39.907 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:27:39.966 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:32:40.282 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:37:40.343 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:42:40.614 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:47:40.656 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:52:40.967 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 22:57:41.001 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 23:02:41.248 +07:00 [INF] Executed DbCommand (36ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 23:07:41.289 +07:00 [INF] Executed DbCommand (32ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 23:12:41.566 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__expiredTime_0='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT b."Id", b."BookingCode", b."CreatedAt", b."Date", b."DiscountAmount", b."FieldId", b."FieldName", b."IsRead", b."Notes", b."PaymentImageUrl", b."Phone", b."ProcessStatus", b."Status", b."StudentCardImageUrl", b."TotalPrice", b."UserId", b."UserName", b."VoucherCode", b."VoucherId"
+FROM "Bookings" AS b
+WHERE b."Status" = 'unpaid' AND b."CreatedAt" < @__expiredTime_0
+2025-06-25 23:15:56.470 +07:00 [INF] Application is shutting down...

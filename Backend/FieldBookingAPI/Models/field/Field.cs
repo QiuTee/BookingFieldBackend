@@ -15,7 +15,8 @@ namespace FieldBookingAPI.Models
         public int Price { get; set; } = 0;
         public bool Is24h { get; set; } 
         public int OwnerId { get; set; }
-        public string? Status { get; set; }
+        public string? FaceBook { get; set; }
+        public string? Status { get; set; } = "active";
         public User Owner { get; set; } = null!;
         public int? CreatedByAdminId { get; set; }
         public User? CreatedByAdmin { get; set; }

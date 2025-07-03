@@ -7,6 +7,7 @@ namespace FieldBookingAPI.DTOs
     public class BookingDto
     {
         public string FieldName { get; set; } = null!;
+        public string BookingCode { get; set; } = null!;
 
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }

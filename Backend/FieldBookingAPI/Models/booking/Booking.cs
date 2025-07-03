@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
 namespace FieldBookingAPI.Models
 {
     public class Booking
 {
     public int Id { get; set; }
+    public string BookingCode { get; set; } = null!;
     public string FieldName { get; set; } = null!;
     public DateTime Date { get; set; }
     public string UserName { get; set; } = null!;

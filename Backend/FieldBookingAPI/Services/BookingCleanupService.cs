@@ -2,40 +2,50 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using FieldBookingAPI.Data;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace FieldBookingAPI.Services
 {
     public class BookingCleanupService : BackgroundService
     {
-        private readonly IServiceProvider _serviceProvider;
-        private readonly TimeSpan _intervaal = TimeSpan.FromMinutes(5);
-        public BookingCleanupService(IServiceProvider serviceProvider)
+        private readonly IServiceScopeFactory _scopeFactory;
+        private readonly ILogger<BookingCleanupService> _logger;
+
+        public BookingCleanupService(IServiceScopeFactory scopeFactory, ILogger<BookingCleanupService> logger)
         {
-            _serviceProvider = serviceProvider;
+            _scopeFactory = scopeFactory;
+            _logger = logger;
         }
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                using (var scope = _serviceProvider.CreateScope())
+                try
                 {
-                    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                    var now = DateTime.UtcNow;
-                    var expiredTime = now.AddMinutes(-30);
-                    var expiredBookings = await context.Bookings
-                        .Where(b => b.Status == "unpaid" && b.CreatedAt < expiredTime)
-                        .ToListAsync();
-                    
-                    if (expiredBookings.Any()){
-                        context.Bookings.RemoveRange(expiredBookings);
-                        await context.SaveChangesAsync(); 
-                        Console.WriteLine($"[AutoCancel] Huỷ {expiredBookings.Count} đơn đặt lúc {DateTime.Now}");
+                    using (var scope = _scopeFactory.CreateScope())
+                    {
+                        var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                        var expiredTime = DateTime.UtcNow.AddMinutes(-30);
+                        var expiredBookings = await context.Bookings
+                            .Where(b => b.Status == "unpaid" && b.CreatedAt < expiredTime)
+                            .ToListAsync(stoppingToken);
+                        
+                        if (expiredBookings.Any())
+                        {
+                            context.Bookings.RemoveRange(expiredBookings);
+                            await context.SaveChangesAsync(stoppingToken); 
+                            _logger.LogInformation($"[AutoCancel] Cancelled {expiredBookings.Count} expired bookings.");
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "An error occurred in BookingCleanupService execution.");
+                }
 
-                await Task.Delay(_intervaal, stoppingToken);
-            }   
-        }       
+                await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
+            }
+        }
     }
 }
