@@ -16,6 +16,7 @@ namespace FieldBookingAPI.Data
         public DbSet<FieldReview> FieldReviews => Set<FieldReview>();
         public DbSet<SubField> SubFields => Set<SubField>();
         public DbSet<Voucher> Vouchers => Set<Voucher>();
+        public DbSet<ProductInf> ProductInfs => Set<ProductInf>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

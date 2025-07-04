@@ -274,6 +274,41 @@ namespace FieldBookingAPI.Migrations
                     b.ToTable("FieldServices");
                 });
 
+            modelBuilder.Entity("FieldBookingAPI.Models.ProductInf", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Available")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductInfs");
+                });
+
             modelBuilder.Entity("FieldBookingAPI.Models.SubField", b =>
                 {
                     b.Property<int>("Id")

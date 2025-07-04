@@ -118,6 +118,14 @@ try
     app.UseRouting();
     app.UseCors("AllowAll");
 
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(
+            Path.Combine(Directory.GetCurrentDirectory(), "dist")
+        ),
+        RequestPath = ""
+    });
+
     app.UseAuthentication();
     app.UseAuthorization();
 
